@@ -1,0 +1,910 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		041DF21207FC6517E3A5F2FB /* libPods-CollabticTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38A4AA3EAC0DADD79FF82763 /* libPods-CollabticTests.a */; };
+		5F368549709B4F14E40A42E6 /* libPods-CollabticUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 047C0AA7810C66DA41EA56B2 /* libPods-CollabticUITests.a */; };
+		7518ACA722B0B63600452247 /* SignUPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518ACA622B0B63600452247 /* SignUPViewController.m */; };
+		7518ACAA22B103AF00452247 /* tearmsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518ACA922B103AF00452247 /* tearmsViewController.m */; };
+		752A62A122B23FE900149EAB /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A629422B23FE900149EAB /* Roboto-Medium.ttf */; };
+		752A62A222B23FE900149EAB /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A629522B23FE900149EAB /* Roboto-Light.ttf */; };
+		752A62A322B23FE900149EAB /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A629622B23FE900149EAB /* Roboto-Regular.ttf */; };
+		752A62A422B23FE900149EAB /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A629722B23FE900149EAB /* Roboto-MediumItalic.ttf */; };
+		752A62A522B23FE900149EAB /* Apache License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 752A629822B23FE900149EAB /* Apache License.txt */; };
+		752A62A622B23FE900149EAB /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A629922B23FE900149EAB /* Roboto-ThinItalic.ttf */; };
+		752A62A722B23FE900149EAB /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A629A22B23FE900149EAB /* Roboto-BoldItalic.ttf */; };
+		752A62A822B23FE900149EAB /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A629B22B23FE900149EAB /* Roboto-LightItalic.ttf */; };
+		752A62A922B23FE900149EAB /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A629C22B23FE900149EAB /* Roboto-Italic.ttf */; };
+		752A62AA22B23FE900149EAB /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A629D22B23FE900149EAB /* Roboto-BlackItalic.ttf */; };
+		752A62AB22B23FE900149EAB /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A629E22B23FE900149EAB /* Roboto-Bold.ttf */; };
+		752A62AC22B23FE900149EAB /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A629F22B23FE900149EAB /* Roboto-Thin.ttf */; };
+		752A62AD22B23FE900149EAB /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A62A022B23FE900149EAB /* Roboto-Black.ttf */; };
+		75315DA922B126DC00C89E1B /* WebviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75315DA822B126DC00C89E1B /* WebviewViewController.m */; };
+		DC62EE2122AF7DE10035980E /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = DC62EE2022AF7DE10035980E /* UIView+Toast.m */; };
+		DC75C98022AE495C00FF2858 /* logInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC75C97F22AE495C00FF2858 /* logInViewController.m */; };
+		DC85B7E822AFBB7600966B3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC85B7E722AFBB7600966B3C /* Assets.xcassets */; };
+		DC8FE12922A8DAD6001D96D2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8FE12822A8DAD6001D96D2 /* AppDelegate.m */; };
+		DC8FE12C22A8DAD6001D96D2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8FE12B22A8DAD6001D96D2 /* ViewController.m */; };
+		DC8FE12F22A8DAD6001D96D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC8FE12D22A8DAD6001D96D2 /* Main.storyboard */; };
+		DC8FE13422A8DAE7001D96D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC8FE13222A8DAE7001D96D2 /* LaunchScreen.storyboard */; };
+		DC8FE13722A8DAE7001D96D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8FE13622A8DAE7001D96D2 /* main.m */; };
+		DC8FE14122A8DAE7001D96D2 /* CollabticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8FE14022A8DAE7001D96D2 /* CollabticTests.m */; };
+		DC8FE14C22A8DAE7001D96D2 /* CollabticUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8FE14B22A8DAE7001D96D2 /* CollabticUITests.m */; };
+		DC8FE16022A8DC66001D96D2 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8FE15F22A8DC66001D96D2 /* AsyncImageView.m */; };
+		DC8FE16722A8DDA0001D96D2 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8FE16622A8DDA0001D96D2 /* WelcomeViewController.m */; };
+		DC8FE16B22A8DE8E001D96D2 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8FE16A22A8DE8E001D96D2 /* Reachability.m */; };
+		DC8FE17322A8DEEB001D96D2 /* CommonClass.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8FE17222A8DEEB001D96D2 /* CommonClass.m */; };
+		DC8FE17822A8E9A1001D96D2 /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8FE17622A8E9A1001D96D2 /* DACircularProgressView.m */; };
+		DC928D6D22AFB57800E7D78A /* forgotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC928D6C22AFB57800E7D78A /* forgotViewController.m */; };
+		DCDB81AB00C9D3272005BEAD /* libPods-Collabtic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9C3F790B05AC8A714E0D8C /* libPods-Collabtic.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DC8FE13D22A8DAE7001D96D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC8FE11C22A8DAD6001D96D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC8FE12322A8DAD6001D96D2;
+			remoteInfo = Collabtic;
+		};
+		DC8FE14822A8DAE7001D96D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC8FE11C22A8DAD6001D96D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC8FE12322A8DAD6001D96D2;
+			remoteInfo = Collabtic;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		047C0AA7810C66DA41EA56B2 /* libPods-CollabticUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CollabticUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		04BE04876EC622F3C9EFA21F /* Pods-Collabtic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collabtic.release.xcconfig"; path = "Pods/Target Support Files/Pods-Collabtic/Pods-Collabtic.release.xcconfig"; sourceTree = "<group>"; };
+		1D9C3F790B05AC8A714E0D8C /* libPods-Collabtic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Collabtic.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3584D5113ADD3F1760D96387 /* Pods-CollabticTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollabticTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CollabticTests/Pods-CollabticTests.debug.xcconfig"; sourceTree = "<group>"; };
+		38A4AA3EAC0DADD79FF82763 /* libPods-CollabticTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CollabticTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FE77D19752D4A80633EB1E4 /* Pods-CollabticTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollabticTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollabticTests/Pods-CollabticTests.release.xcconfig"; sourceTree = "<group>"; };
+		7518ACA522B0B63600452247 /* SignUPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUPViewController.h; sourceTree = "<group>"; };
+		7518ACA622B0B63600452247 /* SignUPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUPViewController.m; sourceTree = "<group>"; };
+		7518ACA822B103AF00452247 /* tearmsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tearmsViewController.h; sourceTree = "<group>"; };
+		7518ACA922B103AF00452247 /* tearmsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = tearmsViewController.m; sourceTree = "<group>"; };
+		752A629422B23FE900149EAB /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		752A629522B23FE900149EAB /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		752A629622B23FE900149EAB /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		752A629722B23FE900149EAB /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		752A629822B23FE900149EAB /* Apache License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Apache License.txt"; sourceTree = "<group>"; };
+		752A629922B23FE900149EAB /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		752A629A22B23FE900149EAB /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		752A629B22B23FE900149EAB /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		752A629C22B23FE900149EAB /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		752A629D22B23FE900149EAB /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		752A629E22B23FE900149EAB /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		752A629F22B23FE900149EAB /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		752A62A022B23FE900149EAB /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		75315DA722B126DC00C89E1B /* WebviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebviewViewController.h; sourceTree = "<group>"; };
+		75315DA822B126DC00C89E1B /* WebviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebviewViewController.m; sourceTree = "<group>"; };
+		A25270B2BF63532FC1EAAC0F /* Pods-CollabticUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollabticUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CollabticUITests/Pods-CollabticUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A273616AA8A7FEBA91229D72 /* Pods-Collabtic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collabtic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Collabtic/Pods-Collabtic.debug.xcconfig"; sourceTree = "<group>"; };
+		B4581325DB24E5A89EA9BFAC /* Pods-CollabticUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollabticUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollabticUITests/Pods-CollabticUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DC62EE1F22AF7DE10035980E /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		DC62EE2022AF7DE10035980E /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
+		DC75C97E22AE495C00FF2858 /* logInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logInViewController.h; sourceTree = "<group>"; };
+		DC75C97F22AE495C00FF2858 /* logInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = logInViewController.m; sourceTree = "<group>"; };
+		DC85B7E722AFBB7600966B3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC8FE12422A8DAD6001D96D2 /* Collabtic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Collabtic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC8FE12722A8DAD6001D96D2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DC8FE12822A8DAD6001D96D2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DC8FE12A22A8DAD6001D96D2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		DC8FE12B22A8DAD6001D96D2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DC8FE12E22A8DAD6001D96D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DC8FE13322A8DAE7001D96D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DC8FE13522A8DAE7001D96D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC8FE13622A8DAE7001D96D2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DC8FE13C22A8DAE7001D96D2 /* CollabticTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CollabticTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC8FE14022A8DAE7001D96D2 /* CollabticTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollabticTests.m; sourceTree = "<group>"; };
+		DC8FE14222A8DAE7001D96D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC8FE14722A8DAE7001D96D2 /* CollabticUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CollabticUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC8FE14B22A8DAE7001D96D2 /* CollabticUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollabticUITests.m; sourceTree = "<group>"; };
+		DC8FE14D22A8DAE7001D96D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC8FE15E22A8DC66001D96D2 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
+		DC8FE15F22A8DC66001D96D2 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
+		DC8FE16522A8DDA0001D96D2 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		DC8FE16622A8DDA0001D96D2 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
+		DC8FE16922A8DE8E001D96D2 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		DC8FE16A22A8DE8E001D96D2 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		DC8FE17122A8DEEB001D96D2 /* CommonClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonClass.h; sourceTree = "<group>"; };
+		DC8FE17222A8DEEB001D96D2 /* CommonClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonClass.m; sourceTree = "<group>"; };
+		DC8FE17422A8DF05001D96D2 /* WebUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebUrl.h; sourceTree = "<group>"; };
+		DC8FE17622A8E9A1001D96D2 /* DACircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACircularProgressView.m; sourceTree = "<group>"; };
+		DC8FE17722A8E9A1001D96D2 /* DACircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DACircularProgressView.h; sourceTree = "<group>"; };
+		DC928D6B22AFB57800E7D78A /* forgotViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = forgotViewController.h; sourceTree = "<group>"; };
+		DC928D6C22AFB57800E7D78A /* forgotViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = forgotViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC8FE12122A8DAD6001D96D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCDB81AB00C9D3272005BEAD /* libPods-Collabtic.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC8FE13922A8DAE7001D96D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				041DF21207FC6517E3A5F2FB /* libPods-CollabticTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC8FE14422A8DAE7001D96D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F368549709B4F14E40A42E6 /* libPods-CollabticUITests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A9EB58B7FE22CCDAD5936EE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A273616AA8A7FEBA91229D72 /* Pods-Collabtic.debug.xcconfig */,
+				04BE04876EC622F3C9EFA21F /* Pods-Collabtic.release.xcconfig */,
+				3584D5113ADD3F1760D96387 /* Pods-CollabticTests.debug.xcconfig */,
+				4FE77D19752D4A80633EB1E4 /* Pods-CollabticTests.release.xcconfig */,
+				A25270B2BF63532FC1EAAC0F /* Pods-CollabticUITests.debug.xcconfig */,
+				B4581325DB24E5A89EA9BFAC /* Pods-CollabticUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6F544CC64D3478734F07A3E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1D9C3F790B05AC8A714E0D8C /* libPods-Collabtic.a */,
+				38A4AA3EAC0DADD79FF82763 /* libPods-CollabticTests.a */,
+				047C0AA7810C66DA41EA56B2 /* libPods-CollabticUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		752A629322B23FE900149EAB /* roboto */ = {
+			isa = PBXGroup;
+			children = (
+				752A629422B23FE900149EAB /* Roboto-Medium.ttf */,
+				752A629522B23FE900149EAB /* Roboto-Light.ttf */,
+				752A629622B23FE900149EAB /* Roboto-Regular.ttf */,
+				752A629722B23FE900149EAB /* Roboto-MediumItalic.ttf */,
+				752A629822B23FE900149EAB /* Apache License.txt */,
+				752A629922B23FE900149EAB /* Roboto-ThinItalic.ttf */,
+				752A629A22B23FE900149EAB /* Roboto-BoldItalic.ttf */,
+				752A629B22B23FE900149EAB /* Roboto-LightItalic.ttf */,
+				752A629C22B23FE900149EAB /* Roboto-Italic.ttf */,
+				752A629D22B23FE900149EAB /* Roboto-BlackItalic.ttf */,
+				752A629E22B23FE900149EAB /* Roboto-Bold.ttf */,
+				752A629F22B23FE900149EAB /* Roboto-Thin.ttf */,
+				752A62A022B23FE900149EAB /* Roboto-Black.ttf */,
+			);
+			path = roboto;
+			sourceTree = "<group>";
+		};
+		DC62EE1E22AF7DE10035980E /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				DC62EE1F22AF7DE10035980E /* UIView+Toast.h */,
+				DC62EE2022AF7DE10035980E /* UIView+Toast.m */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
+		DC8FE11B22A8DAD6001D96D2 = {
+			isa = PBXGroup;
+			children = (
+				DC8FE15922A8DB0F001D96D2 /* Model */,
+				DC8FE15A22A8DB19001D96D2 /* view */,
+				DC8FE15B22A8DB21001D96D2 /* controller */,
+				DC8FE12622A8DAD6001D96D2 /* Collabtic */,
+				DC8FE13F22A8DAE7001D96D2 /* CollabticTests */,
+				DC8FE14A22A8DAE7001D96D2 /* CollabticUITests */,
+				DC8FE12522A8DAD6001D96D2 /* Products */,
+				752A629322B23FE900149EAB /* roboto */,
+				1A9EB58B7FE22CCDAD5936EE /* Pods */,
+				6F544CC64D3478734F07A3E5 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DC8FE12522A8DAD6001D96D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC8FE12422A8DAD6001D96D2 /* Collabtic.app */,
+				DC8FE13C22A8DAE7001D96D2 /* CollabticTests.xctest */,
+				DC8FE14722A8DAE7001D96D2 /* CollabticUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC8FE12622A8DAD6001D96D2 /* Collabtic */ = {
+			isa = PBXGroup;
+			children = (
+				DC8FE12722A8DAD6001D96D2 /* AppDelegate.h */,
+				DC8FE12822A8DAD6001D96D2 /* AppDelegate.m */,
+				DC85B7E722AFBB7600966B3C /* Assets.xcassets */,
+				DC8FE13222A8DAE7001D96D2 /* LaunchScreen.storyboard */,
+				DC8FE13522A8DAE7001D96D2 /* Info.plist */,
+				DC8FE13622A8DAE7001D96D2 /* main.m */,
+			);
+			path = Collabtic;
+			sourceTree = "<group>";
+		};
+		DC8FE13F22A8DAE7001D96D2 /* CollabticTests */ = {
+			isa = PBXGroup;
+			children = (
+				DC8FE14022A8DAE7001D96D2 /* CollabticTests.m */,
+				DC8FE14222A8DAE7001D96D2 /* Info.plist */,
+			);
+			path = CollabticTests;
+			sourceTree = "<group>";
+		};
+		DC8FE14A22A8DAE7001D96D2 /* CollabticUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DC8FE14B22A8DAE7001D96D2 /* CollabticUITests.m */,
+				DC8FE14D22A8DAE7001D96D2 /* Info.plist */,
+			);
+			path = CollabticUITests;
+			sourceTree = "<group>";
+		};
+		DC8FE15922A8DB0F001D96D2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DC62EE1E22AF7DE10035980E /* Toast */,
+				DC8FE17522A8E98A001D96D2 /* MBProgress */,
+				DC8FE17022A8DED1001D96D2 /* commonClass */,
+				DC8FE16C22A8DEA7001D96D2 /* webservices */,
+				DC8FE16822A8DE72001D96D2 /* Rechability */,
+				DC8FE15D22A8DC1E001D96D2 /* Asyncimageview */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DC8FE15A22A8DB19001D96D2 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				DC8FE15C22A8DB76001D96D2 /* storyBoard */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		DC8FE15B22A8DB21001D96D2 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				DC90B2CD22AA592400200678 /* loginViewcontrollers */,
+				DC8FE16122A8DD37001D96D2 /* WelcomeScreens */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		DC8FE15C22A8DB76001D96D2 /* storyBoard */ = {
+			isa = PBXGroup;
+			children = (
+				DC8FE12D22A8DAD6001D96D2 /* Main.storyboard */,
+			);
+			path = storyBoard;
+			sourceTree = "<group>";
+		};
+		DC8FE15D22A8DC1E001D96D2 /* Asyncimageview */ = {
+			isa = PBXGroup;
+			children = (
+				DC8FE15E22A8DC66001D96D2 /* AsyncImageView.h */,
+				DC8FE15F22A8DC66001D96D2 /* AsyncImageView.m */,
+			);
+			path = Asyncimageview;
+			sourceTree = "<group>";
+		};
+		DC8FE16122A8DD37001D96D2 /* WelcomeScreens */ = {
+			isa = PBXGroup;
+			children = (
+				DC8FE16522A8DDA0001D96D2 /* WelcomeViewController.h */,
+				DC8FE16622A8DDA0001D96D2 /* WelcomeViewController.m */,
+			);
+			path = WelcomeScreens;
+			sourceTree = "<group>";
+		};
+		DC8FE16822A8DE72001D96D2 /* Rechability */ = {
+			isa = PBXGroup;
+			children = (
+				DC8FE16922A8DE8E001D96D2 /* Reachability.h */,
+				DC8FE16A22A8DE8E001D96D2 /* Reachability.m */,
+			);
+			path = Rechability;
+			sourceTree = "<group>";
+		};
+		DC8FE16C22A8DEA7001D96D2 /* webservices */ = {
+			isa = PBXGroup;
+			children = (
+				DC8FE17422A8DF05001D96D2 /* WebUrl.h */,
+			);
+			path = webservices;
+			sourceTree = "<group>";
+		};
+		DC8FE17022A8DED1001D96D2 /* commonClass */ = {
+			isa = PBXGroup;
+			children = (
+				DC8FE17122A8DEEB001D96D2 /* CommonClass.h */,
+				DC8FE17222A8DEEB001D96D2 /* CommonClass.m */,
+			);
+			path = commonClass;
+			sourceTree = "<group>";
+		};
+		DC8FE17522A8E98A001D96D2 /* MBProgress */ = {
+			isa = PBXGroup;
+			children = (
+				DC8FE17722A8E9A1001D96D2 /* DACircularProgressView.h */,
+				DC8FE17622A8E9A1001D96D2 /* DACircularProgressView.m */,
+			);
+			path = MBProgress;
+			sourceTree = "<group>";
+		};
+		DC90B2CD22AA592400200678 /* loginViewcontrollers */ = {
+			isa = PBXGroup;
+			children = (
+				DC75C97E22AE495C00FF2858 /* logInViewController.h */,
+				DC75C97F22AE495C00FF2858 /* logInViewController.m */,
+				DC8FE12A22A8DAD6001D96D2 /* ViewController.h */,
+				DC8FE12B22A8DAD6001D96D2 /* ViewController.m */,
+				DC928D6B22AFB57800E7D78A /* forgotViewController.h */,
+				DC928D6C22AFB57800E7D78A /* forgotViewController.m */,
+				7518ACA522B0B63600452247 /* SignUPViewController.h */,
+				7518ACA622B0B63600452247 /* SignUPViewController.m */,
+				7518ACA822B103AF00452247 /* tearmsViewController.h */,
+				7518ACA922B103AF00452247 /* tearmsViewController.m */,
+				75315DA722B126DC00C89E1B /* WebviewViewController.h */,
+				75315DA822B126DC00C89E1B /* WebviewViewController.m */,
+			);
+			path = loginViewcontrollers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DC8FE12322A8DAD6001D96D2 /* Collabtic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC8FE15022A8DAE7001D96D2 /* Build configuration list for PBXNativeTarget "Collabtic" */;
+			buildPhases = (
+				DDF4CF9EBB0FD42B34FD04D2 /* [CP] Check Pods Manifest.lock */,
+				DC8FE12022A8DAD6001D96D2 /* Sources */,
+				DC8FE12122A8DAD6001D96D2 /* Frameworks */,
+				DC8FE12222A8DAD6001D96D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Collabtic;
+			productName = Collabtic;
+			productReference = DC8FE12422A8DAD6001D96D2 /* Collabtic.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DC8FE13B22A8DAE7001D96D2 /* CollabticTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC8FE15322A8DAE7001D96D2 /* Build configuration list for PBXNativeTarget "CollabticTests" */;
+			buildPhases = (
+				8CAB9E28460EE13C834B6027 /* [CP] Check Pods Manifest.lock */,
+				DC8FE13822A8DAE7001D96D2 /* Sources */,
+				DC8FE13922A8DAE7001D96D2 /* Frameworks */,
+				DC8FE13A22A8DAE7001D96D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC8FE13E22A8DAE7001D96D2 /* PBXTargetDependency */,
+			);
+			name = CollabticTests;
+			productName = CollabticTests;
+			productReference = DC8FE13C22A8DAE7001D96D2 /* CollabticTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DC8FE14622A8DAE7001D96D2 /* CollabticUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC8FE15622A8DAE7001D96D2 /* Build configuration list for PBXNativeTarget "CollabticUITests" */;
+			buildPhases = (
+				5D9858DEB906706FD7E769C6 /* [CP] Check Pods Manifest.lock */,
+				DC8FE14322A8DAE7001D96D2 /* Sources */,
+				DC8FE14422A8DAE7001D96D2 /* Frameworks */,
+				DC8FE14522A8DAE7001D96D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC8FE14922A8DAE7001D96D2 /* PBXTargetDependency */,
+			);
+			name = CollabticUITests;
+			productName = CollabticUITests;
+			productReference = DC8FE14722A8DAE7001D96D2 /* CollabticUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC8FE11C22A8DAD6001D96D2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = InfoWave;
+				TargetAttributes = {
+					DC8FE12322A8DAD6001D96D2 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					DC8FE13B22A8DAE7001D96D2 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = DC8FE12322A8DAD6001D96D2;
+					};
+					DC8FE14622A8DAE7001D96D2 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = DC8FE12322A8DAD6001D96D2;
+					};
+				};
+			};
+			buildConfigurationList = DC8FE11F22A8DAD6001D96D2 /* Build configuration list for PBXProject "Collabtic" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DC8FE11B22A8DAD6001D96D2;
+			productRefGroup = DC8FE12522A8DAD6001D96D2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC8FE12322A8DAD6001D96D2 /* Collabtic */,
+				DC8FE13B22A8DAE7001D96D2 /* CollabticTests */,
+				DC8FE14622A8DAE7001D96D2 /* CollabticUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DC8FE12222A8DAD6001D96D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				752A62AB22B23FE900149EAB /* Roboto-Bold.ttf in Resources */,
+				752A62A322B23FE900149EAB /* Roboto-Regular.ttf in Resources */,
+				752A62A922B23FE900149EAB /* Roboto-Italic.ttf in Resources */,
+				752A62A822B23FE900149EAB /* Roboto-LightItalic.ttf in Resources */,
+				752A62A122B23FE900149EAB /* Roboto-Medium.ttf in Resources */,
+				DC8FE13422A8DAE7001D96D2 /* LaunchScreen.storyboard in Resources */,
+				752A62A222B23FE900149EAB /* Roboto-Light.ttf in Resources */,
+				752A62AA22B23FE900149EAB /* Roboto-BlackItalic.ttf in Resources */,
+				752A62AC22B23FE900149EAB /* Roboto-Thin.ttf in Resources */,
+				752A62A422B23FE900149EAB /* Roboto-MediumItalic.ttf in Resources */,
+				752A62A522B23FE900149EAB /* Apache License.txt in Resources */,
+				752A62AD22B23FE900149EAB /* Roboto-Black.ttf in Resources */,
+				752A62A622B23FE900149EAB /* Roboto-ThinItalic.ttf in Resources */,
+				DC85B7E822AFBB7600966B3C /* Assets.xcassets in Resources */,
+				752A62A722B23FE900149EAB /* Roboto-BoldItalic.ttf in Resources */,
+				DC8FE12F22A8DAD6001D96D2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC8FE13A22A8DAE7001D96D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC8FE14522A8DAE7001D96D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5D9858DEB906706FD7E769C6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CollabticUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8CAB9E28460EE13C834B6027 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CollabticTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DDF4CF9EBB0FD42B34FD04D2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Collabtic-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC8FE12022A8DAD6001D96D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC8FE16722A8DDA0001D96D2 /* WelcomeViewController.m in Sources */,
+				DC8FE12C22A8DAD6001D96D2 /* ViewController.m in Sources */,
+				7518ACAA22B103AF00452247 /* tearmsViewController.m in Sources */,
+				7518ACA722B0B63600452247 /* SignUPViewController.m in Sources */,
+				DC8FE13722A8DAE7001D96D2 /* main.m in Sources */,
+				DC8FE17822A8E9A1001D96D2 /* DACircularProgressView.m in Sources */,
+				DC928D6D22AFB57800E7D78A /* forgotViewController.m in Sources */,
+				DC8FE12922A8DAD6001D96D2 /* AppDelegate.m in Sources */,
+				DC8FE16B22A8DE8E001D96D2 /* Reachability.m in Sources */,
+				DC8FE16022A8DC66001D96D2 /* AsyncImageView.m in Sources */,
+				DC75C98022AE495C00FF2858 /* logInViewController.m in Sources */,
+				DC62EE2122AF7DE10035980E /* UIView+Toast.m in Sources */,
+				75315DA922B126DC00C89E1B /* WebviewViewController.m in Sources */,
+				DC8FE17322A8DEEB001D96D2 /* CommonClass.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC8FE13822A8DAE7001D96D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC8FE14122A8DAE7001D96D2 /* CollabticTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC8FE14322A8DAE7001D96D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC8FE14C22A8DAE7001D96D2 /* CollabticUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DC8FE13E22A8DAE7001D96D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC8FE12322A8DAD6001D96D2 /* Collabtic */;
+			targetProxy = DC8FE13D22A8DAE7001D96D2 /* PBXContainerItemProxy */;
+		};
+		DC8FE14922A8DAE7001D96D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC8FE12322A8DAD6001D96D2 /* Collabtic */;
+			targetProxy = DC8FE14822A8DAE7001D96D2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DC8FE12D22A8DAD6001D96D2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC8FE12E22A8DAD6001D96D2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DC8FE13222A8DAE7001D96D2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC8FE13322A8DAE7001D96D2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DC8FE14E22A8DAE7001D96D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DC8FE14F22A8DAE7001D96D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DC8FE15122A8DAE7001D96D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A273616AA8A7FEBA91229D72 /* Pods-Collabtic.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PEGDZH994U;
+				INFOPLIST_FILE = Collabtic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.CollabticAppNew;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		DC8FE15222A8DAE7001D96D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04BE04876EC622F3C9EFA21F /* Pods-Collabtic.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PEGDZH994U;
+				INFOPLIST_FILE = Collabtic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.CollabticAppNew;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		DC8FE15422A8DAE7001D96D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3584D5113ADD3F1760D96387 /* Pods-CollabticTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CollabticTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.infowave.CollabticTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Collabtic.app/Collabtic";
+			};
+			name = Debug;
+		};
+		DC8FE15522A8DAE7001D96D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FE77D19752D4A80633EB1E4 /* Pods-CollabticTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CollabticTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.infowave.CollabticTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Collabtic.app/Collabtic";
+			};
+			name = Release;
+		};
+		DC8FE15722A8DAE7001D96D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A25270B2BF63532FC1EAAC0F /* Pods-CollabticUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CollabticUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.infowave.CollabticUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Collabtic;
+			};
+			name = Debug;
+		};
+		DC8FE15822A8DAE7001D96D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4581325DB24E5A89EA9BFAC /* Pods-CollabticUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CollabticUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.infowave.CollabticUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Collabtic;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC8FE11F22A8DAD6001D96D2 /* Build configuration list for PBXProject "Collabtic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC8FE14E22A8DAE7001D96D2 /* Debug */,
+				DC8FE14F22A8DAE7001D96D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC8FE15022A8DAE7001D96D2 /* Build configuration list for PBXNativeTarget "Collabtic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC8FE15122A8DAE7001D96D2 /* Debug */,
+				DC8FE15222A8DAE7001D96D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC8FE15322A8DAE7001D96D2 /* Build configuration list for PBXNativeTarget "CollabticTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC8FE15422A8DAE7001D96D2 /* Debug */,
+				DC8FE15522A8DAE7001D96D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC8FE15622A8DAE7001D96D2 /* Build configuration list for PBXNativeTarget "CollabticUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC8FE15722A8DAE7001D96D2 /* Debug */,
+				DC8FE15822A8DAE7001D96D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DC8FE11C22A8DAD6001D96D2 /* Project object */;
+}
