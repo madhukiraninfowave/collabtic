@@ -10,6 +10,7 @@
 #import "UIView+Toast.h"
 #import <AFNetworking.h>
 #import "WebUrl.h"
+#import "Webservices.h"
 #import "forgotViewController.h"
 #define kOFFSET_FOR_KEYBOARD 80.0
 @interface logInViewController ()
@@ -176,10 +177,10 @@
 }
 -(void)hideKeyBoard
 {
-    [self.view endEditing:YES];
-    [self.textfield_Login resignFirstResponder];
-    [self.textfield_password resignFirstResponder];
+    
     [self viewNormal];
+   [self.textfield_password resignFirstResponder];
+   
 
 }
 
@@ -193,8 +194,10 @@
     rect.origin.y += kOFFSET_FOR_KEYBOARD;
     rect.size.height -= kOFFSET_FOR_KEYBOARD;
     self.view.frame = rect;
-    [UIView commitAnimations];
+  
     }
+    
+      [UIView commitAnimations];
 }
 /*
 #pragma mark - Navigation
@@ -227,38 +230,27 @@
                     position:CSToastPositionBottom];
         
     }else{
-        NSString *url = @"http://mobile-devapi.collabtic.com//accounts/login?";
+        NSString *url =Login;
         NSDictionary* parametersDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                               [NSString stringWithFormat:@"%@",self.textfield_Login.text], @"email",
                                               [NSString stringWithFormat:@"%@",self.textfield_password.text], @"password",
                                                [NSString stringWithFormat:@"%@",self.textfield_Login.text], @"username",
                                               nil
                                               ];
-        
-        AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-        [manager.requestSerializer setValue:@"application/x-www-form-urlencoded; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
-        //you can change timeout value as per your requirment
-        [manager.requestSerializer setTimeoutInterval:60.0];
-        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-        
-        [manager POST:url parameters:parametersDictionary progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            NSLog(@"%@",responseObject);
-            if ([[responseObject valueForKey:@"status"]isEqualToString:@"Failure"]) {
-                [self.view makeToast:[responseObject valueForKey:@"message"] duration:3.0 position:CSToastPositionBottom];
-                
-            }else{
-                 [self.view makeToast:@"Login Successfull" duration:3.0 position:CSToastPositionBottom];
-            }
+[Webservices requestPostUrl:Login parameters:parametersDictionary success:^(NSDictionary *responce) {
+        //Success
+        if ([[responce valueForKey:@"status"]isEqualToString:@"Failure"]) {
+            [self.view makeToast:[responce valueForKey:@"message"] duration:3.0 position:CSToastPositionBottom];
             
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            NSLog(@"%@",error);
-        }];
-  
+        }else{
+            [self.view makeToast:@"Login Successfull" duration:3.0 position:CSToastPositionBottom];
+        }
+        
+    } failure:^(NSError *error) {
+        //error
+    }];
+        
     }
-        
-        
-
-    
 }
 - (IBAction)button_forgot:(UIButton *)sender {
     UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];

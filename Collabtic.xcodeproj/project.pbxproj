@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		041DF21207FC6517E3A5F2FB /* libPods-CollabticTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38A4AA3EAC0DADD79FF82763 /* libPods-CollabticTests.a */; };
 		5F368549709B4F14E40A42E6 /* libPods-CollabticUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 047C0AA7810C66DA41EA56B2 /* libPods-CollabticUITests.a */; };
+		750CA03A22B3654900D6436A /* signUpemailverifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 750CA03922B3654900D6436A /* signUpemailverifyViewController.m */; };
+		750ED97922B4C89800288953 /* Webservices.m in Sources */ = {isa = PBXBuildFile; fileRef = 750ED97822B4C89800288953 /* Webservices.m */; };
+		750ED97C22B4DE5F00288953 /* SignupfinalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 750ED97B22B4DE5F00288953 /* SignupfinalViewController.m */; };
 		7518ACA722B0B63600452247 /* SignUPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518ACA622B0B63600452247 /* SignUPViewController.m */; };
 		7518ACAA22B103AF00452247 /* tearmsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518ACA922B103AF00452247 /* tearmsViewController.m */; };
 		752A62A122B23FE900149EAB /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A629422B23FE900149EAB /* Roboto-Medium.ttf */; };
@@ -68,6 +71,12 @@
 		3584D5113ADD3F1760D96387 /* Pods-CollabticTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollabticTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CollabticTests/Pods-CollabticTests.debug.xcconfig"; sourceTree = "<group>"; };
 		38A4AA3EAC0DADD79FF82763 /* libPods-CollabticTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CollabticTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FE77D19752D4A80633EB1E4 /* Pods-CollabticTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollabticTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollabticTests/Pods-CollabticTests.release.xcconfig"; sourceTree = "<group>"; };
+		750CA03822B3654900D6436A /* signUpemailverifyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = signUpemailverifyViewController.h; sourceTree = "<group>"; };
+		750CA03922B3654900D6436A /* signUpemailverifyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = signUpemailverifyViewController.m; sourceTree = "<group>"; };
+		750ED97722B4C89800288953 /* Webservices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Webservices.h; sourceTree = "<group>"; };
+		750ED97822B4C89800288953 /* Webservices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webservices.m; sourceTree = "<group>"; };
+		750ED97A22B4DE5F00288953 /* SignupfinalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupfinalViewController.h; sourceTree = "<group>"; };
+		750ED97B22B4DE5F00288953 /* SignupfinalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignupfinalViewController.m; sourceTree = "<group>"; };
 		7518ACA522B0B63600452247 /* SignUPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUPViewController.h; sourceTree = "<group>"; };
 		7518ACA622B0B63600452247 /* SignUPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUPViewController.m; sourceTree = "<group>"; };
 		7518ACA822B103AF00452247 /* tearmsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tearmsViewController.h; sourceTree = "<group>"; };
@@ -330,6 +339,8 @@
 		DC8FE16C22A8DEA7001D96D2 /* webservices */ = {
 			isa = PBXGroup;
 			children = (
+				750ED97722B4C89800288953 /* Webservices.h */,
+				750ED97822B4C89800288953 /* Webservices.m */,
 				DC8FE17422A8DF05001D96D2 /* WebUrl.h */,
 			);
 			path = webservices;
@@ -368,6 +379,10 @@
 				7518ACA922B103AF00452247 /* tearmsViewController.m */,
 				75315DA722B126DC00C89E1B /* WebviewViewController.h */,
 				75315DA822B126DC00C89E1B /* WebviewViewController.m */,
+				750CA03822B3654900D6436A /* signUpemailverifyViewController.h */,
+				750CA03922B3654900D6436A /* signUpemailverifyViewController.m */,
+				750ED97A22B4DE5F00288953 /* SignupfinalViewController.h */,
+				750ED97B22B4DE5F00288953 /* SignupfinalViewController.m */,
 			);
 			path = loginViewcontrollers;
 			sourceTree = "<group>";
@@ -578,6 +593,7 @@
 				DC8FE16722A8DDA0001D96D2 /* WelcomeViewController.m in Sources */,
 				DC8FE12C22A8DAD6001D96D2 /* ViewController.m in Sources */,
 				7518ACAA22B103AF00452247 /* tearmsViewController.m in Sources */,
+				750ED97C22B4DE5F00288953 /* SignupfinalViewController.m in Sources */,
 				7518ACA722B0B63600452247 /* SignUPViewController.m in Sources */,
 				DC8FE13722A8DAE7001D96D2 /* main.m in Sources */,
 				DC8FE17822A8E9A1001D96D2 /* DACircularProgressView.m in Sources */,
@@ -585,6 +601,8 @@
 				DC8FE12922A8DAD6001D96D2 /* AppDelegate.m in Sources */,
 				DC8FE16B22A8DE8E001D96D2 /* Reachability.m in Sources */,
 				DC8FE16022A8DC66001D96D2 /* AsyncImageView.m in Sources */,
+				750ED97922B4C89800288953 /* Webservices.m in Sources */,
+				750CA03A22B3654900D6436A /* signUpemailverifyViewController.m in Sources */,
 				DC75C98022AE495C00FF2858 /* logInViewController.m in Sources */,
 				DC62EE2122AF7DE10035980E /* UIView+Toast.m in Sources */,
 				75315DA922B126DC00C89E1B /* WebviewViewController.m in Sources */,

@@ -25,6 +25,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) IBOutlet UILabel *label_Emailline;
 @property (strong, nonatomic) IBOutlet UILabel *label_linepswd;
 @property (strong, nonatomic) IBOutlet UITextField *textfield_password;
+@property (strong, nonatomic) IBOutlet UIButton *button_back;
+- (IBAction)button_backAction:(UIButton *)sender;
+
+@property (strong, nonatomic) IBOutlet AsyncImageView *imageview_companyImage;
+@property (nonatomic, strong)UIImage*profileImage;
+@property (nonatomic,strong)NSString*businessLogo;
+@property (nonatomic,strong)NSString*businessName;
+@property (nonatomic,strong)NSString*businessMailid;
+
+@property (strong, nonatomic) IBOutlet UILabel *label_signup;
+
 @end
 
 NS_ASSUME_NONNULL_END

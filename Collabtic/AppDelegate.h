@@ -18,6 +18,10 @@
      NSTimer *timer;
 }
 @property (strong, nonatomic)NSString *loginID;
+@property (strong, nonatomic)NSString *businessName;
+@property (strong, nonatomic)NSString *businessLogo;
+@property (strong, nonatomic)NSString *businessMailid;
+@property (strong, nonatomic)UIImage *pickedImage;
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic)UIView *loaderView;

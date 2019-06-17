@@ -10,6 +10,8 @@
 #import "UIView+Toast.h"
 #import <AFNetworking.h>
 #import "AppDelegate.h"
+#import "WebUrl.h"
+#import "Webservices.h"
 
 @interface forgotViewController (){
     AppDelegate * appDelegate;
@@ -57,7 +59,7 @@
                     position:CSToastPositionBottom];
     }else{
         [self.view addSubview:appDelegate.loaderView];
-        NSString *url = @"http://mobile-devapi.collabtic.com//accounts/resetpassword/accounts/resetpassword?";
+      
         NSDictionary* parametersDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                               [NSString stringWithFormat:@"%@",self.textfield_email.text], @"email",
                                               [NSString stringWithFormat:@"%@",@"mobile"],@"access_type",
@@ -65,17 +67,11 @@
                                               nil
                                               ];
         
-        AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-        [manager.requestSerializer setValue:@"application/x-www-form-urlencoded; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
-        //you can change timeout value as per your requirment
-        [manager.requestSerializer setTimeoutInterval:60.0];
-        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-        
-        [manager POST:url parameters:parametersDictionary progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-           // NSLog(@"%@",responseObject);
-            if ([[responseObject valueForKey:@"status"]intValue] == 0) {
+        [Webservices requestPostUrl:forgotPassword parameters:parametersDictionary success:^(NSDictionary *responce) {
+            //Success
+            if ([[responce valueForKey:@"status"]intValue] == 0) {
                 [self->appDelegate.loaderView removeFromSuperview];
-                [self.view makeToast:[responseObject valueForKey:@"message"] duration:3.0 position:CSToastPositionBottom];
+                [self.view makeToast:[responce valueForKey:@"message"] duration:3.0 position:CSToastPositionBottom];
                 
             }else{
                 UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Collabtic"
@@ -84,22 +80,23 @@
                 
                 UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
                                                                       handler:^(UIAlertAction * action) {
-                                                    [self okButtonPressed];
+                                                                          [self okButtonPressed];
                                                                       }];
                 
                 [alert addAction:defaultAction];
                 [self presentViewController:alert animated:YES completion:nil];
                 
-               
-
+              
+                
             }
             
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            NSLog(@"%@",error);
-            [self->appDelegate.loaderView removeFromSuperview];
+        } failure:^(NSError *error) {
+            
         }];
+        
+        
     }
-    
+    [appDelegate.loaderView removeFromSuperview];
 }
 
 #pragma mark Text Field Delegate

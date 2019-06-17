@@ -11,6 +11,8 @@
 #import "AppDelegate.h"
 #import <AFNetworking.h>
 #import "ViewController.h"
+#import "UIView+Toast.h"
+#import "Webservices.h"
 
 
 
@@ -40,17 +42,32 @@
     NSURL *URL = [NSURL URLWithString:Splash];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-      
-        
-        [self->ary_welcomeimages addObjectsFromArray:[[responseObject valueForKey:@"data"] valueForKey:@"data"]];
+
+
+[self->ary_welcomeimages addObjectsFromArray:[[responseObject valueForKey:@"data"] valueForKey:@"data"]];
         [self AddtheimagetoScroll];
-        
-       
+
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
     
-     NSLog(@"JSON: %@", self->ary_welcomeimages);
+    
+//[Webservices requestGetUrl:Splash success:^(NSDictionary *responce) {
+//        if ([[responce valueForKey:@"status"]isEqualToString:@"Failure"]) {
+//            [self.view makeToast:[responce valueForKey:@"message"] duration:3.0 position:CSToastPositionBottom];
+//
+//        }else{
+//
+//            [self->ary_welcomeimages addObjectsFromArray:[[responce valueForKey:@"data"] valueForKey:@"data"]];
+//            [self AddtheimagetoScroll];
+//
+//        }
+//
+//    } failure:^(NSError *error) {
+//        //error
+//    }];
+    
+   
     
 //    ary_welcomeimages=[[NSArray alloc ]initWithObjects:@"screen1.jpg",
 //                       @"screen2.jpg",
@@ -66,7 +83,15 @@
     
 }
 -(void) viewWillAppear:(BOOL)animated {
-    
+    if ([[AFNetworkReachabilityManager sharedManager] isReachable])
+    {
+        
+    }
+    else
+    {
+        [self.view makeToast:@"Check your internet connection" duration:3.0 position:CSToastPositionBottom];
+    }
+
     
 }
 -(void)AddtheimagetoScroll
@@ -292,9 +317,16 @@
 
 #pragma buttonActions
 -(void)goButton:(UIButton *)sender{
-    UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-     ViewController  *ViewControllerObj=[storyBoard instantiateViewControllerWithIdentifier:@"ViewControllerID"];
-    [self.navigationController pushViewController:ViewControllerObj animated:YES];
+  
+        UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        ViewController  *ViewControllerObj=[storyBoard instantiateViewControllerWithIdentifier:@"ViewControllerID"];
+        [self.navigationController pushViewController:ViewControllerObj animated:YES];
+//    }
+//    else
+//    {
+//        [self.view makeToast:@"Check your internet connection" duration:3.0 position:CSToastPositionBottom];
+//    }
+   
 }
 
 /*

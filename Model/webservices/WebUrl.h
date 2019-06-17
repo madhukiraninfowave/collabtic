@@ -29,8 +29,13 @@
 //Splash Screen
 #define Splash  (HeaderPath @"accounts/appsplashSlideshow?api_key=dG9wZml4MTIz")
 
-#define Login  (HeaderPath @"accounts/login?email=%@&password=%@&username=%@")
-//
+#define Login  (HeaderPath @"/accounts/login?")
+#define signupValiedEmail (HeaderPath @"/accounts/checkvaliduser?")
+#define forgotPassword (HeaderPath @"/accounts/resetpassword/accounts/resetpassword?")
+
+
+
+
 //// Granola / Health Kit
 //
 //#define SaveHRAAnswer (HeaderPath @"members/saveHRA?username=%@")

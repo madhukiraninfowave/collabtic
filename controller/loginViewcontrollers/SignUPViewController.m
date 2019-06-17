@@ -8,32 +8,66 @@
 
 #import "SignUPViewController.h"
 #import "tearmsViewController.h"
+#import "Webservices.h"
+#import "WebUrl.h"
+#import "UIView+Toast.h"
+#import "SignupfinalViewController.h"
+#import "AppDelegate.h"
+
+
 #define kOFFSET_FOR_KEYBOARD 80.0
 
 @interface SignUPViewController (){
-    
+    AppDelegate * appDelegate;
     
 }
 
 @end
 
 @implementation SignUPViewController
-
+@synthesize profileImage,businessLogo,businessName,businessMailid;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    appDelegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
     // Do any additional setup after loading the view.
+    if (appDelegate.pickedImage == nil) {
+        
+    }else{
+         [self.imageview_signup setImage:appDelegate.pickedImage];
+    }
+   
     self.imageview_signup.layer.cornerRadius = self.imageview_signup.frame.size.height / 2;
     self.imageview_signup.clipsToBounds = YES;
+     self.imageview_companyImage.layer.borderWidth = 1;
+     self.imageview_companyImage.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.imageview_companyImage.layer.cornerRadius = self.imageview_companyImage.frame.size.height / 2;
+   self.imageview_companyImage.clipsToBounds = YES;
     UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc]
                                            initWithTarget:self
                                            action:@selector(hideKeyBoard)];
     
     [self.view addGestureRecognizer:tapGesture];
+   
+    [self.imageview_companyImage setImageURL:[NSURL URLWithString:businessLogo]];
+    self.textfield_signup.userInteractionEnabled = NO;
+    self.textfield_signup.text = businessMailid;
+    self.label_signup.text = businessName;
+    
 
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.view endEditing:YES];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(keyboardWillShow)
+//                                                 name:UIKeyboardWillShowNotification
+//                                               object:nil];
+//
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(keyboardWillHide)
+//                                                 name:UIKeyboardWillHideNotification
+//                                               object:nil];
 }
 #pragma mark Text Field Delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
@@ -106,6 +140,41 @@
 
 - (IBAction)button_go:(UIButton *)sender {
     
+    
+   
+    NSDictionary* parametersDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                          [NSString stringWithFormat:@"%@",self.textfield_signup.text], @"email",
+                                              [NSString stringWithFormat:@"dG9wZml4MTIz"],@"api_key", [NSString stringWithFormat:@"2"],@"step", [NSString stringWithFormat:@"%@",self.textfield_password.text],@"password",nil];
+    
+//    NSDictionary *dictParam = @{@"parameter1":@"value1",@"parameter1":@"value2"};
+    
+    [Webservices requestPostUrl:signupValiedEmail parameters:parametersDictionary success:^(NSDictionary *responce) {
+        //Success
+        NSLog(@"responce:%@",responce);
+        if ([[responce valueForKey:@"status"]isEqualToString:@"Failure"]) {
+            [self.view makeToast:[responce valueForKey:@"message"] duration:3.0 position:CSToastPositionBottom];
+            
+        }else if([self.button_check.currentImage isEqual:[UIImage imageNamed:@"Checkboxnotick"]]){
+            
+            [self.view makeToast:@"Please select accept" duration:3.0 position:CSToastPositionBottom];
+            
+            
+        }else{
+            
+            UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            SignupfinalViewController *ViewControllerObj=[storyBoard instantiateViewControllerWithIdentifier:@"SignupfinalID"];
+            ViewControllerObj.profileImage = self.profileImage;
+            
+            [self.navigationController pushViewController:ViewControllerObj animated:YES];
+        }
+    
+        //
+       
+    } failure:^(NSError *error) {
+        //error
+    }];
+    
+    
 }
 -(void)hideKeyBoard
 {
@@ -146,7 +215,37 @@
         rect.origin.y += kOFFSET_FOR_KEYBOARD;
         rect.size.height -= kOFFSET_FOR_KEYBOARD;
         self.view.frame = rect;
-        [UIView commitAnimations];
+       
+    }
+     [UIView commitAnimations];
+}
+- (IBAction)button_backAction:(UIButton *)sender {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+-(void)keyboardWillShow {
+    // Animate the current view out of the way
+    if (self.view.frame.origin.y == 0)
+    {
+        [self setViewMovedUp:NO];
+    }
+    else if (self.view.frame.origin.y < 0)
+    {
+        [self setViewMovedUp:NO];
     }
 }
+-(void)keyboardWillHide {
+    if (self.view.frame.origin.y >= 0)
+    {
+        [self setViewMovedUp:YES];
+    }
+    else if (self.view.frame.origin.y < 0)
+    {
+        [self setViewMovedUp:NO];
+    }
+}
+#pragma UItextfield Delegates
+
+
+
 @end

@@ -24,7 +24,7 @@
 @end
 
 @implementation AppDelegate
-@synthesize loginID,internetWorking,loaderView;
+@synthesize loginID,internetWorking,loaderView,businessName,businessMailid,businessLogo,pickedImage;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UINavigationController *navController;

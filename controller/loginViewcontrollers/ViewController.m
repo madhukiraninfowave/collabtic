@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "logInViewController.h"
-#import "SignUPViewController.h"
+#import "signUpemailverifyViewController.h"
 
 @interface ViewController ()
 
@@ -47,7 +47,7 @@
 }
 - (IBAction)button_newuser:(UIButton *)sender {
     UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    SignUPViewController *ViewControllerObj=[storyBoard instantiateViewControllerWithIdentifier:@"signUPID"];
+    signUpemailverifyViewController *ViewControllerObj=[storyBoard instantiateViewControllerWithIdentifier:@"signUpemailverifyID"];
     [self.navigationController pushViewController:ViewControllerObj animated:YES];
     
     
