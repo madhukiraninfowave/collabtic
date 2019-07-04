@@ -11,6 +11,7 @@
 
 
 
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface signUpemailverifyViewController : UIViewController<UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -23,6 +24,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) IBOutlet UIButton *Button_profileimage;
 - (IBAction)button_profileImage:(UIButton *)sender;
 
+@property (strong, nonatomic) IBOutlet UILabel *label_emailverification;
+@property (strong, nonatomic) IBOutlet UIButton *button_Cancle;
+- (IBAction)button_cancle:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UIButton *signUp_Next;
+- (IBAction)SignUp_Next:(UIButton *)sender;
 
 @end
 

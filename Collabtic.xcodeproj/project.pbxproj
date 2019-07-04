@@ -14,6 +14,9 @@
 		750ED97C22B4DE5F00288953 /* SignupfinalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 750ED97B22B4DE5F00288953 /* SignupfinalViewController.m */; };
 		7518ACA722B0B63600452247 /* SignUPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518ACA622B0B63600452247 /* SignUPViewController.m */; };
 		7518ACAA22B103AF00452247 /* tearmsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518ACA922B103AF00452247 /* tearmsViewController.m */; };
+		751EB32322CB6BEB000CB8A2 /* ThreadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 751EB32222CB6BEB000CB8A2 /* ThreadsViewController.m */; };
+		751EB32D22CB6E22000CB8A2 /* ThreadsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 751EB32B22CB6E22000CB8A2 /* ThreadsTableViewCell.m */; };
+		751EB32E22CB6E22000CB8A2 /* ThreadsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 751EB32C22CB6E22000CB8A2 /* ThreadsTableViewCell.xib */; };
 		752A62A122B23FE900149EAB /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A629422B23FE900149EAB /* Roboto-Medium.ttf */; };
 		752A62A222B23FE900149EAB /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A629522B23FE900149EAB /* Roboto-Light.ttf */; };
 		752A62A322B23FE900149EAB /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A629622B23FE900149EAB /* Roboto-Regular.ttf */; };
@@ -28,6 +31,9 @@
 		752A62AC22B23FE900149EAB /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A629F22B23FE900149EAB /* Roboto-Thin.ttf */; };
 		752A62AD22B23FE900149EAB /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A62A022B23FE900149EAB /* Roboto-Black.ttf */; };
 		75315DA922B126DC00C89E1B /* WebviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75315DA822B126DC00C89E1B /* WebviewViewController.m */; };
+		7538F29022C73B8A0031539A /* homeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7538F28F22C73B8A0031539A /* homeViewController.m */; };
+		7538F29722C74D850031539A /* hometabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7538F29622C74D850031539A /* hometabViewController.m */; };
+		756F76B222C5DF39004FFACC /* loginValidationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 756F76B122C5DF39004FFACC /* loginValidationViewController.m */; };
 		DC62EE2122AF7DE10035980E /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = DC62EE2022AF7DE10035980E /* UIView+Toast.m */; };
 		DC75C98022AE495C00FF2858 /* logInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC75C97F22AE495C00FF2858 /* logInViewController.m */; };
 		DC85B7E822AFBB7600966B3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC85B7E722AFBB7600966B3C /* Assets.xcassets */; };
@@ -81,6 +87,11 @@
 		7518ACA622B0B63600452247 /* SignUPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUPViewController.m; sourceTree = "<group>"; };
 		7518ACA822B103AF00452247 /* tearmsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tearmsViewController.h; sourceTree = "<group>"; };
 		7518ACA922B103AF00452247 /* tearmsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = tearmsViewController.m; sourceTree = "<group>"; };
+		751EB32122CB6BEB000CB8A2 /* ThreadsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadsViewController.h; sourceTree = "<group>"; };
+		751EB32222CB6BEB000CB8A2 /* ThreadsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreadsViewController.m; sourceTree = "<group>"; };
+		751EB32A22CB6E22000CB8A2 /* ThreadsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadsTableViewCell.h; sourceTree = "<group>"; };
+		751EB32B22CB6E22000CB8A2 /* ThreadsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreadsTableViewCell.m; sourceTree = "<group>"; };
+		751EB32C22CB6E22000CB8A2 /* ThreadsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThreadsTableViewCell.xib; sourceTree = "<group>"; };
 		752A629422B23FE900149EAB /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		752A629522B23FE900149EAB /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		752A629622B23FE900149EAB /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -96,6 +107,13 @@
 		752A62A022B23FE900149EAB /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		75315DA722B126DC00C89E1B /* WebviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebviewViewController.h; sourceTree = "<group>"; };
 		75315DA822B126DC00C89E1B /* WebviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebviewViewController.m; sourceTree = "<group>"; };
+		7538F28E22C73B8A0031539A /* homeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = homeViewController.h; sourceTree = "<group>"; };
+		7538F28F22C73B8A0031539A /* homeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = homeViewController.m; sourceTree = "<group>"; };
+		7538F29522C74D850031539A /* hometabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hometabViewController.h; sourceTree = "<group>"; };
+		7538F29622C74D850031539A /* hometabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = hometabViewController.m; sourceTree = "<group>"; };
+		7540D39122C4EC7F002A2FE9 /* Collabtic.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Collabtic.entitlements; sourceTree = "<group>"; };
+		756F76B022C5DF39004FFACC /* loginValidationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = loginValidationViewController.h; sourceTree = "<group>"; };
+		756F76B122C5DF39004FFACC /* loginValidationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = loginValidationViewController.m; sourceTree = "<group>"; };
 		A25270B2BF63532FC1EAAC0F /* Pods-CollabticUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollabticUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CollabticUITests/Pods-CollabticUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A273616AA8A7FEBA91229D72 /* Pods-Collabtic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collabtic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Collabtic/Pods-Collabtic.debug.xcconfig"; sourceTree = "<group>"; };
 		B4581325DB24E5A89EA9BFAC /* Pods-CollabticUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollabticUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollabticUITests/Pods-CollabticUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -185,6 +203,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		751EB32922CB6DE1000CB8A2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		752A629322B23FE900149EAB /* roboto */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +230,22 @@
 			path = roboto;
 			sourceTree = "<group>";
 		};
+		7538F28D22C73B630031539A /* Homecontroller */ = {
+			isa = PBXGroup;
+			children = (
+				7538F28E22C73B8A0031539A /* homeViewController.h */,
+				7538F28F22C73B8A0031539A /* homeViewController.m */,
+				7538F29522C74D850031539A /* hometabViewController.h */,
+				7538F29622C74D850031539A /* hometabViewController.m */,
+				751EB32122CB6BEB000CB8A2 /* ThreadsViewController.h */,
+				751EB32222CB6BEB000CB8A2 /* ThreadsViewController.m */,
+				751EB32A22CB6E22000CB8A2 /* ThreadsTableViewCell.h */,
+				751EB32B22CB6E22000CB8A2 /* ThreadsTableViewCell.m */,
+				751EB32C22CB6E22000CB8A2 /* ThreadsTableViewCell.xib */,
+			);
+			path = Homecontroller;
+			sourceTree = "<group>";
+		};
 		DC62EE1E22AF7DE10035980E /* Toast */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,8 +258,8 @@
 		DC8FE11B22A8DAD6001D96D2 = {
 			isa = PBXGroup;
 			children = (
+				751EB32922CB6DE1000CB8A2 /* View */,
 				DC8FE15922A8DB0F001D96D2 /* Model */,
-				DC8FE15A22A8DB19001D96D2 /* view */,
 				DC8FE15B22A8DB21001D96D2 /* controller */,
 				DC8FE12622A8DAD6001D96D2 /* Collabtic */,
 				DC8FE13F22A8DAE7001D96D2 /* CollabticTests */,
@@ -243,6 +284,7 @@
 		DC8FE12622A8DAD6001D96D2 /* Collabtic */ = {
 			isa = PBXGroup;
 			children = (
+				7540D39122C4EC7F002A2FE9 /* Collabtic.entitlements */,
 				DC8FE12722A8DAD6001D96D2 /* AppDelegate.h */,
 				DC8FE12822A8DAD6001D96D2 /* AppDelegate.m */,
 				DC85B7E722AFBB7600966B3C /* Assets.xcassets */,
@@ -284,17 +326,11 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		DC8FE15A22A8DB19001D96D2 /* view */ = {
-			isa = PBXGroup;
-			children = (
-				DC8FE15C22A8DB76001D96D2 /* storyBoard */,
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
 		DC8FE15B22A8DB21001D96D2 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				DC8FE15C22A8DB76001D96D2 /* storyBoard */,
+				7538F28D22C73B630031539A /* Homecontroller */,
 				DC90B2CD22AA592400200678 /* loginViewcontrollers */,
 				DC8FE16122A8DD37001D96D2 /* WelcomeScreens */,
 			);
@@ -383,6 +419,8 @@
 				750CA03922B3654900D6436A /* signUpemailverifyViewController.m */,
 				750ED97A22B4DE5F00288953 /* SignupfinalViewController.h */,
 				750ED97B22B4DE5F00288953 /* SignupfinalViewController.m */,
+				756F76B022C5DF39004FFACC /* loginValidationViewController.h */,
+				756F76B122C5DF39004FFACC /* loginValidationViewController.m */,
 			);
 			path = loginViewcontrollers;
 			sourceTree = "<group>";
@@ -457,6 +495,14 @@
 				TargetAttributes = {
 					DC8FE12322A8DAD6001D96D2 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
+						};
 					};
 					DC8FE13B22A8DAE7001D96D2 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -497,6 +543,7 @@
 				752A62A322B23FE900149EAB /* Roboto-Regular.ttf in Resources */,
 				752A62A922B23FE900149EAB /* Roboto-Italic.ttf in Resources */,
 				752A62A822B23FE900149EAB /* Roboto-LightItalic.ttf in Resources */,
+				751EB32E22CB6E22000CB8A2 /* ThreadsTableViewCell.xib in Resources */,
 				752A62A122B23FE900149EAB /* Roboto-Medium.ttf in Resources */,
 				DC8FE13422A8DAE7001D96D2 /* LaunchScreen.storyboard in Resources */,
 				752A62A222B23FE900149EAB /* Roboto-Light.ttf in Resources */,
@@ -591,9 +638,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC8FE16722A8DDA0001D96D2 /* WelcomeViewController.m in Sources */,
+				7538F29722C74D850031539A /* hometabViewController.m in Sources */,
 				DC8FE12C22A8DAD6001D96D2 /* ViewController.m in Sources */,
 				7518ACAA22B103AF00452247 /* tearmsViewController.m in Sources */,
 				750ED97C22B4DE5F00288953 /* SignupfinalViewController.m in Sources */,
+				751EB32322CB6BEB000CB8A2 /* ThreadsViewController.m in Sources */,
 				7518ACA722B0B63600452247 /* SignUPViewController.m in Sources */,
 				DC8FE13722A8DAE7001D96D2 /* main.m in Sources */,
 				DC8FE17822A8E9A1001D96D2 /* DACircularProgressView.m in Sources */,
@@ -606,7 +655,10 @@
 				DC75C98022AE495C00FF2858 /* logInViewController.m in Sources */,
 				DC62EE2122AF7DE10035980E /* UIView+Toast.m in Sources */,
 				75315DA922B126DC00C89E1B /* WebviewViewController.m in Sources */,
+				7538F29022C73B8A0031539A /* homeViewController.m in Sources */,
 				DC8FE17322A8DEEB001D96D2 /* CommonClass.m in Sources */,
+				756F76B222C5DF39004FFACC /* loginValidationViewController.m in Sources */,
+				751EB32D22CB6E22000CB8A2 /* ThreadsTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -776,6 +828,8 @@
 			baseConfigurationReference = A273616AA8A7FEBA91229D72 /* Pods-Collabtic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Collabtic/Collabtic.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PEGDZH994U;
 				INFOPLIST_FILE = Collabtic/Info.plist;
@@ -786,6 +840,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.CollabticAppNew;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -795,6 +850,8 @@
 			baseConfigurationReference = 04BE04876EC622F3C9EFA21F /* Pods-Collabtic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Collabtic/Collabtic.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PEGDZH994U;
 				INFOPLIST_FILE = Collabtic/Info.plist;
@@ -805,6 +862,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.CollabticAppNew;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

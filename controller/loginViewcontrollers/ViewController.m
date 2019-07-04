@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "logInViewController.h"
+#import "loginValidationViewController.h"
 #import "signUpemailverifyViewController.h"
 
 @interface ViewController ()
@@ -31,7 +31,7 @@
 - (IBAction)Action_login:(UIButton *)sender {
     
     UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    logInViewController  *ViewControllerObj=[storyBoard instantiateViewControllerWithIdentifier:@"logInViewID"];
+    loginValidationViewController  *ViewControllerObj=[storyBoard instantiateViewControllerWithIdentifier:@"loginValidationID"];
     [self.navigationController pushViewController:ViewControllerObj animated:YES];
 }
 - (IBAction)button_cancle:(UIButton *)sender {

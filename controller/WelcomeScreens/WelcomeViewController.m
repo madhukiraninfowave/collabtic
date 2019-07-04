@@ -83,14 +83,11 @@
     
 }
 -(void) viewWillAppear:(BOOL)animated {
-    if ([[AFNetworkReachabilityManager sharedManager] isReachable])
+    if (![[AFNetworkReachabilityManager sharedManager] isReachable])
     {
-        
+//        [self.view makeToast:@"Check your internet connection" duration:3.0 position:CSToastPositionBottom];
     }
-    else
-    {
-        [self.view makeToast:@"Check your internet connection" duration:3.0 position:CSToastPositionBottom];
-    }
+    
 
     
 }

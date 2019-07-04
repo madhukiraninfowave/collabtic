@@ -57,46 +57,14 @@
 */
 
 - (IBAction)buttonAction_go:(UIButton *)sender {
-    [self.textfield_emailverify resignFirstResponder];
-   
-    if ([self.textfield_emailverify.text isEqualToString:@""]) {
-        [self.view makeToast:@"Email Field should not be blank"
-                    duration:3.0
-                    position:CSToastPositionBottom];
-        
-    }else if (![self validateEmail:self.textfield_emailverify.text]){
-        [self.view makeToast:@"Enter a Valied Email"
-                    duration:3.0
-                    position:CSToastPositionBottom];
-     
-      
-        }else{
-        NSDictionary* parametersDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                              [NSString stringWithFormat:@"%@",self.textfield_emailverify.text], @"email",
-                                              [NSString stringWithFormat:@"dG9wZml4MTIz"],@"api_key", [NSString stringWithFormat:@"1"],@"step",nil];
-        [Webservices requestPostUrl:signupValiedEmail parameters:parametersDictionary success:^(NSDictionary *responce) {
-            if ([[responce valueForKey:@"status"]isEqualToString:@"Failure"]) {
-                [self.view makeToast:[responce valueForKey:@"message"] duration:3.0 position:CSToastPositionBottom];
-                
-            }else{
-                
-                UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                SignUPViewController *ViewControllerObj=[storyBoard instantiateViewControllerWithIdentifier:@"signUPID"];
-               ViewControllerObj.businessLogo = [[responce valueForKey:@"data"] valueForKey:@"business_logo"];
-                 self->appDelegate.businessMailid =[[responce valueForKey:@"data"] valueForKey:@"email"];
-                ViewControllerObj.businessMailid =[[responce valueForKey:@"data"] valueForKey:@"email"];
-                ViewControllerObj.businessName =[[responce valueForKey:@"data"] valueForKey:@"business_name"];
-                self->appDelegate.businessName = [[responce valueForKey:@"data"] valueForKey:@"business_name"];
-                ViewControllerObj.profileImage = self.Imageview_Profile.image;
-                [self.navigationController pushViewController:ViewControllerObj animated:YES];
-            }
-                
-            } failure:^(NSError *error) {
-                //error
-            }];
-        
-    }
     
+    [UIView animateWithDuration:0.5
+                     animations:^{
+                         [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.navigationController.view cache:NO];
+                     }
+                     completion:^(BOOL finished){
+                     }];
+    [self.navigationController popViewControllerAnimated:NO];
 }
 -(BOOL)validateEmail:(NSString *)email
 {
@@ -108,10 +76,8 @@
 }
 - (IBAction)button_profileImage:(UIButton *)sender {
     [self.view endEditing:YES];
-   actionSheet = [UIAlertController alertControllerWithTitle:@"Action Sheet" message:@"Using the alert controller" preferredStyle:UIAlertControllerStyleActionSheet];
-  
-    
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Gallary" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    actionSheet = [[UIAlertController alloc]init];
+  [actionSheet addAction:[UIAlertAction actionWithTitle:@"Gallery" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [self imagePicker];
         // Distructive button tapped.
         [self dismissViewControllerAnimated:YES completion:^{
@@ -126,7 +92,7 @@
         }];
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancle" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         [self dismissViewControllerAnimated:YES completion:^{
         }];
     }]];
@@ -154,7 +120,7 @@
     }];
 }
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    
+    appDelegate.pickedImageUrl = (NSURL *)[info valueForKey:UIImagePickerControllerImageURL];
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     self.Imageview_Profile.image = chosenImage;
     self->appDelegate.pickedImage = chosenImage;
@@ -186,12 +152,73 @@
     
     return YES;
 }
-- (void)textFieldDidEndEditing:(UITextField *)textField{
+
+-(void) textFieldDidBeginEditing:(UITextField *)textField {
     
+    self.label_emailverification.backgroundColor = [UIColor yellowColor];
+    
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+     self.label_emailverification.backgroundColor = [UIColor whiteColor];
+    
+   
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    
+ NSString * searchStr = [textField.text stringByReplacingCharactersInRange:range withString:string];
+   
+    if ([searchStr length] == 0) {
+        self.signUp_Next.hidden = YES;
+    }else{
+        self.signUp_Next.hidden = NO;
+    }
+ 
     return YES;
 }
+
+
+- (IBAction)SignUp_Next:(UIButton *)sender {
+    [self.textfield_emailverify resignFirstResponder];
+    
+    if ([self.textfield_emailverify.text isEqualToString:@""]) {
+        [self.view makeToast:@"Email field should not be blank"
+                    duration:3.0
+                    position:CSToastPositionBottom];
+        
+    }else if (![self validateEmail:self.textfield_emailverify.text]){
+        [self.view makeToast:@"Enter a valid email"
+                    duration:3.0
+                    position:CSToastPositionBottom];
+        
+        
+    }else{
+        NSDictionary* parametersDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                              [NSString stringWithFormat:@"%@",self.textfield_emailverify.text], @"email",
+                                              [NSString stringWithFormat:@"dG9wZml4MTIz"],@"api_key", [NSString stringWithFormat:@"1"],@"step",nil];
+        [Webservices requestPostUrl:signupValiedEmail parameters:parametersDictionary success:^(NSDictionary *responce) {
+            if ([[responce valueForKey:@"status"]isEqualToString:@"Failure"]) {
+                [self.view makeToast:[responce valueForKey:@"message"] duration:3.0 position:CSToastPositionBottom];
+                
+            }else{
+                
+                UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                SignUPViewController *ViewControllerObj=[storyBoard instantiateViewControllerWithIdentifier:@"signUPID"];
+                ViewControllerObj.businessLogo = [[responce valueForKey:@"data"] valueForKey:@"business_logo"];
+                self->appDelegate.businessMailid =[[responce valueForKey:@"data"] valueForKey:@"email"];
+                ViewControllerObj.businessMailid =[[responce valueForKey:@"data"] valueForKey:@"email"];
+                ViewControllerObj.businessName =[[responce valueForKey:@"data"] valueForKey:@"business_name"];
+                self->appDelegate.businessName = [[responce valueForKey:@"data"] valueForKey:@"business_name"];
+                ViewControllerObj.profileImage = self.Imageview_Profile.image;
+                [self.navigationController pushViewController:ViewControllerObj animated:YES];
+            }
+            
+        } failure:^(NSError *error) {
+            //error
+        }];
+        
+    }
+    
+}
+
+
 @end

@@ -11,6 +11,7 @@
 #import  <AFURLSessionManager.h>
 #import <AFNetworking.h>
 #import <AFNetworkActivityIndicatorManager.h>
+#import "hometabViewController.h"
 
 @class WebService;
 
@@ -24,7 +25,7 @@
 @end
 
 @implementation AppDelegate
-@synthesize loginID,internetWorking,loaderView,businessName,businessMailid,businessLogo,pickedImage;
+@synthesize loginID,internetWorking,loaderView,businessName,businessMailid,businessLogo,pickedImage,passWord,pickedImageUrl,checkbutton,loginStatus;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UINavigationController *navController;
@@ -54,11 +55,7 @@
     progressView.progressTintColor= [UIColor lightGrayColor];
     progressView.center=self.loaderView.center;
     [self.loaderView addSubview:progressView];
-    
-   
     [self startAnimation];
-    
-    
     self.activityIndicator = [[UIActivityIndicatorView alloc]init];
     [self.activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
     //    self.activityIndicator.color = [UIColor colorWithRed:55/255.0f green:139/255.0f blue:43/255.0f alpha:1];
@@ -68,17 +65,27 @@
     self.activityIndicator.center=self.window.center;
     self.activityIndicator.layer.cornerRadius=2.0;
     self.activityIndicator.layer.masksToBounds=YES;
-   
- 
-    UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    [self.loaderView removeFromSuperview];
-    WelcomeViewController  *HomeViewObj=[storyBoard instantiateViewControllerWithIdentifier:@"WelcomeViewControllerID"];
-    navController = [[UINavigationController alloc]initWithRootViewController:HomeViewObj];
-   [navController setNavigationBarHidden:YES animated:YES];
-    [self.window setRootViewController:navController];
-    [self.window makeKeyAndVisible];
-
-    return YES;
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"logged_in"]) {
+        UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        [self.loaderView removeFromSuperview];
+        WelcomeViewController  *HomeViewObj=[storyBoard instantiateViewControllerWithIdentifier:@"WelcomeViewControllerID"];
+        navController = [[UINavigationController alloc]initWithRootViewController:HomeViewObj];
+        [navController setNavigationBarHidden:YES animated:YES];
+        [self.window setRootViewController:navController];
+        [self.window makeKeyAndVisible];
+        return YES;
+        
+    }else{
+      UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        [self.loaderView removeFromSuperview];
+        hometabViewController  *HomeViewObj=[storyBoard instantiateViewControllerWithIdentifier:@"homeViewID"];
+        navController = [[UINavigationController alloc]initWithRootViewController:HomeViewObj];
+        [navController setNavigationBarHidden:YES animated:YES];
+        [self.window setRootViewController:navController];
+        [self.window makeKeyAndVisible];
+        return YES;
+    }
+    
 }
 
 
@@ -156,4 +163,16 @@
     
     
 }
+
+#pragma deeplinking
+- (BOOL) application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(nonnull void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler{
+    
+    if ([userActivity.activityType isEqualToString:NSUserActivityTypeBrowsingWeb]) {
+        NSString *myUrl = [userActivity.webpageURL absoluteString];
+        NSLog(@"myUrl==%@",myUrl);
+    }
+    // Debug log something here
+    return YES;
+}
+
 @end

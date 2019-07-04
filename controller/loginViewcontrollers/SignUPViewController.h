@@ -35,6 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong)NSString*businessMailid;
 
 @property (strong, nonatomic) IBOutlet UILabel *label_signup;
+- (IBAction)button_next:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UIButton *button_next;
 
 @end
 

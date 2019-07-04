@@ -20,7 +20,7 @@
 @end
 
 @implementation forgotViewController
-
+@synthesize companyLogo;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -32,6 +32,7 @@
     
     [self.view addGestureRecognizer:tapGesture];
     self.textfield_email.font = [UIFont fontWithName:@"Roboto-Bold" size:16.0];
+    [self.imageview_forgotlogo setImageURL:[NSURL URLWithString:companyLogo]];
 
 }
 
@@ -54,7 +55,7 @@
     
     [self.textfield_email resignFirstResponder];
     if ([self.textfield_email.text isEqualToString:@""]) {
-        [self.view makeToast:@"Enter a vaid email adress"
+        [self.view makeToast:@"Enter the valid email address"
                     duration:3.0
                     position:CSToastPositionBottom];
     }else{

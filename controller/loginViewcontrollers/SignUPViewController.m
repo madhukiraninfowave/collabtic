@@ -19,6 +19,7 @@
 
 @interface SignUPViewController (){
     AppDelegate * appDelegate;
+   
     
 }
 
@@ -28,7 +29,7 @@
 @synthesize profileImage,businessLogo,businessName,businessMailid;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+   
     appDelegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
     // Do any additional setup after loading the view.
     if (appDelegate.pickedImage == nil) {
@@ -39,10 +40,7 @@
    
     self.imageview_signup.layer.cornerRadius = self.imageview_signup.frame.size.height / 2;
     self.imageview_signup.clipsToBounds = YES;
-     self.imageview_companyImage.layer.borderWidth = 1;
-     self.imageview_companyImage.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.imageview_companyImage.layer.cornerRadius = self.imageview_companyImage.frame.size.height / 2;
-   self.imageview_companyImage.clipsToBounds = YES;
+     
     UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc]
                                            initWithTarget:self
                                            action:@selector(hideKeyBoard)];
@@ -52,8 +50,20 @@
     [self.imageview_companyImage setImageURL:[NSURL URLWithString:businessLogo]];
     self.textfield_signup.userInteractionEnabled = NO;
     self.textfield_signup.text = businessMailid;
-    self.label_signup.text = businessName;
+    //self.label_signup.text = businessName;
+    if (appDelegate.passWord !=nil) {
+         self.textfield_password.text = appDelegate.passWord;
+        self.button_next.hidden = NO;
+    }
+   self.textfield_password.delegate = self;
     
+    if (appDelegate.checkbutton == YES) {
+        
+        [self.button_check setImage:[UIImage imageNamed:@"checkbox"] forState:UIControlStateNormal];
+    }else{
+        
+        [self.button_check setImage:[UIImage imageNamed:@"Checkboxnotick"] forState:UIControlStateNormal];
+    }
 
 }
 - (void)viewWillAppear:(BOOL)animated
@@ -73,13 +83,17 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     
 //    [self.textfield_email resignFirstResponder];
+    
+    
     [self.view endEditing:YES];
     [self viewNormal];
     return YES;
 }
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
     // add your method here
-    
+    if ([self.textfield_password.text isEqualToString:@""]) {
+        self.button_next.hidden = YES;
+    }
     return YES;
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField{
@@ -87,6 +101,10 @@
         self.label_Emailline.backgroundColor = [UIColor whiteColor];
     }else{
         self.label_linepswd.backgroundColor = [UIColor whiteColor];
+        appDelegate.passWord = [NSString stringWithFormat:@"%@",self.textfield_password.text];
+        if ([self.textfield_password.text isEqualToString:@""]) {
+             self.button_next.hidden = YES;
+        }
     }
 }
 -(void) textFieldDidBeginEditing:(UITextField *)textField {
@@ -95,19 +113,31 @@
          self.label_linepswd.backgroundColor = [UIColor whiteColor];
         [self.textfield_signup becomeFirstResponder];
     }else{
-        self.label_linepswd.backgroundColor = [UIColor yellowColor];
+         self.button_next.hidden = YES;
+         self.label_linepswd.backgroundColor = [UIColor yellowColor];
         self.label_Emailline.backgroundColor = [UIColor whiteColor];
-          [self.label_Emailline becomeFirstResponder];
+        [self.label_Emailline becomeFirstResponder];
         if  (self.view.frame.origin.y >= 0)
         {
             [self setViewMovedUp:YES];
         }
+
     }
+    
     
 }
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSString * searchStr = [self.textfield_password.text stringByReplacingCharactersInRange:range withString:string];
     
-    return YES;
+    if ([searchStr length] == 0) {
+        self.button_next.hidden = YES;
+        
+    }else{
+        self.button_next.hidden = NO;
+       
+    }
+   
+      return YES;
 }
 
 
@@ -126,9 +156,11 @@
 - (IBAction)button_check:(UIButton *)sender {
     if ([self.button_check.currentImage isEqual:[UIImage imageNamed:@"Checkboxnotick"]]){
         [self.button_check setImage:[UIImage imageNamed:@"checkbox"] forState:UIControlStateNormal];
+        appDelegate.checkbutton = YES;
     
     }else{
          [self.button_check setImage:[UIImage imageNamed:@"Checkboxnotick"] forState:UIControlStateNormal];
+         appDelegate.checkbutton = NO;
 }
 }
 - (IBAction)button_tearms:(UIButton *)sender {
@@ -140,13 +172,51 @@
 
 - (IBAction)button_go:(UIButton *)sender {
     
+    [UIView animateWithDuration:0.5
+                     animations:^{
+                         [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.navigationController.view cache:NO];
+                     }
+                     completion:^(BOOL finished){
+                     }];
+    [self.navigationController popViewControllerAnimated:NO];
+}
+
+-(void)keyboardWillShow {
+    // Animate the current view out of the way
+    if (self.view.frame.origin.y == 0)
+    {
+        [self setViewMovedUp:NO];
+    }
+    else if (self.view.frame.origin.y < 0)
+    {
+        [self setViewMovedUp:NO];
+    }
+}
+-(void)keyboardWillHide {
+    if (self.view.frame.origin.y >= 0)
+    {
+        [self setViewMovedUp:YES];
+    }
+    else if (self.view.frame.origin.y < 0)
+    {
+        [self setViewMovedUp:NO];
+    }
+}
+#pragma UItextfield Delegates
+
+
+
+- (IBAction)button_next:(UIButton *)sender {
     
-   
+    self.textfield_password.clearsOnBeginEditing = NO;
+    [self.view endEditing:YES];
+    [self viewNormal];
+    
     NSDictionary* parametersDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                           [NSString stringWithFormat:@"%@",self.textfield_signup.text], @"email",
-                                              [NSString stringWithFormat:@"dG9wZml4MTIz"],@"api_key", [NSString stringWithFormat:@"2"],@"step", [NSString stringWithFormat:@"%@",self.textfield_password.text],@"password",nil];
-    
-//    NSDictionary *dictParam = @{@"parameter1":@"value1",@"parameter1":@"value2"};
+                                          [NSString stringWithFormat:@"dG9wZml4MTIz"],@"api_key", [NSString stringWithFormat:@"2"],@"step", [NSString stringWithFormat:@"%@",self.textfield_password.text],@"password",nil];
+    appDelegate.passWord = [NSString stringWithFormat:@"%@",self.textfield_password.text];
+    //    NSDictionary *dictParam = @{@"parameter1":@"value1",@"parameter1":@"value2"};
     
     [Webservices requestPostUrl:signupValiedEmail parameters:parametersDictionary success:^(NSDictionary *responce) {
         //Success
@@ -154,9 +224,13 @@
         if ([[responce valueForKey:@"status"]isEqualToString:@"Failure"]) {
             [self.view makeToast:[responce valueForKey:@"message"] duration:3.0 position:CSToastPositionBottom];
             
+        }else if([self.textfield_password.text length] < 6){
+            [self.view makeToast:@"Password should be minimum 6 characters"
+                        duration:3.0
+                        position:CSToastPositionBottom];
         }else if([self.button_check.currentImage isEqual:[UIImage imageNamed:@"Checkboxnotick"]]){
             
-            [self.view makeToast:@"Please select accept" duration:3.0 position:CSToastPositionBottom];
+            [self.view makeToast:@"Please accept Terms & Policies to continue" duration:3.0 position:CSToastPositionBottom];
             
             
         }else{
@@ -164,12 +238,12 @@
             UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
             SignupfinalViewController *ViewControllerObj=[storyBoard instantiateViewControllerWithIdentifier:@"SignupfinalID"];
             ViewControllerObj.profileImage = self.profileImage;
-            
+            ViewControllerObj.businessLogo = self.businessLogo;
             [self.navigationController pushViewController:ViewControllerObj animated:YES];
         }
-    
+        
         //
-       
+        
     } failure:^(NSError *error) {
         //error
     }];
@@ -178,7 +252,7 @@
 }
 -(void)hideKeyBoard
 {
-     [self viewNormal];
+    [self viewNormal];
     [self.view endEditing:YES];
     
     
@@ -211,41 +285,14 @@
         [self.textfield_password resignFirstResponder];
         
     }else{
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.3];
         CGRect rect = self.view.frame;
         rect.origin.y += kOFFSET_FOR_KEYBOARD;
         rect.size.height -= kOFFSET_FOR_KEYBOARD;
         self.view.frame = rect;
-       
+        
     }
-     [UIView commitAnimations];
+    [UIView commitAnimations];
 }
-- (IBAction)button_backAction:(UIButton *)sender {
-    
-    [self.navigationController popViewControllerAnimated:YES];
-}
--(void)keyboardWillShow {
-    // Animate the current view out of the way
-    if (self.view.frame.origin.y == 0)
-    {
-        [self setViewMovedUp:NO];
-    }
-    else if (self.view.frame.origin.y < 0)
-    {
-        [self setViewMovedUp:NO];
-    }
-}
--(void)keyboardWillHide {
-    if (self.view.frame.origin.y >= 0)
-    {
-        [self setViewMovedUp:YES];
-    }
-    else if (self.view.frame.origin.y < 0)
-    {
-        [self setViewMovedUp:NO];
-    }
-}
-#pragma UItextfield Delegates
-
-
-
 @end

@@ -12,34 +12,53 @@
 #import "WebUrl.h"
 #import "Webservices.h"
 #import "forgotViewController.h"
+#import "hometabViewController.h"
+#import "AppDelegate.h"
 #define kOFFSET_FOR_KEYBOARD 80.0
-@interface logInViewController ()
+@interface logInViewController (){
+    
+    AppDelegate * appDelegate;
+    
+}
 
 @end
 
 @implementation logInViewController
-
+@synthesize imageCompany,businessName,profileImage;
 - (void)viewDidLoad {
     [super viewDidLoad];
+      appDelegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
     // Do any additional setup after loading the view.
     self.textfield_Login.delegate = self;
     self.textfield_password.delegate = self;
     self.view_login.layer.masksToBounds = YES;
     self.textfield_Login.font = [UIFont fontWithName:@"Roboto-Regular" size:16];
     self.textfield_password.font = [UIFont fontWithName:@"Roboto-Regular" size:16];
-     
-    self.textfield_Login.textColor = [UIColor whiteColor];
+    self.loginprofileimage.layer.cornerRadius = self.loginprofileimage.frame.size.height / 2;
+    self.loginprofileimage.clipsToBounds = YES;
+   
     self.textfield_password.textColor = [UIColor whiteColor];
     UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc]
                                            initWithTarget:self
                                            action:@selector(hideKeyBoard)];
     
     [self.view addGestureRecognizer:tapGesture];
-  
-
-    
-
-  
+    if (imageCompany == nil) {
+        
+    }else{
+        
+         [self.image_icon setImageURL:[NSURL URLWithString:imageCompany]];
+    }
+    if (profileImage == nil) {
+        
+    }else{
+        
+           [self.loginprofileimage setImageURL:[NSURL URLWithString:profileImage]];
+    }
+ 
+    //
+    self.textfield_Login.text = [NSString stringWithFormat:@"%@",businessName];
+    self.textfield_Login.userInteractionEnabled = NO;
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -100,39 +119,45 @@
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     if (textField == self.textfield_Login){
-       if ( textField.text.length == 0){
-            
-        }else{
-            NSString *url = @"http://mobile-devapi.collabtic.com//accounts/login?";
-            NSDictionary* parametersDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                                  [NSString stringWithFormat:@"%@",self.textfield_Login.text], @"email",
-                                                  [NSString stringWithFormat:@"%@",self.textfield_password.text], @"password",
-                                                  [NSString stringWithFormat:@"%@",self.textfield_Login.text], @"username",
-                                                  nil
-                                                  ];
-            
-            AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-            [manager.requestSerializer setValue:@"application/x-www-form-urlencoded; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
-            //you can change timeout value as per your requirment
-            [manager.requestSerializer setTimeoutInterval:60.0];
-            manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-            
-            [manager POST:url parameters:parametersDictionary progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                NSLog(@"%@",responseObject);
-                if ([[responseObject valueForKey:@"status"]isEqualToString:@"Failure"]) {
-                    [self.view makeToast:[responseObject valueForKey:@"message"] duration:3.0 position:CSToastPositionBottom];
-                    
-                }else{
-                    [self.view makeToast:@"Login Successfull" duration:3.0 position:CSToastPositionBottom];
-                }
-                
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                NSLog(@"%@",error);
-            }];
-            
-        }
         
+         self.label_loginline.backgroundColor = [UIColor whiteColor];
+    }else{
+        
+        self.label_password.backgroundColor = [UIColor whiteColor];
     }
+//       if ( textField.text.length == 0){
+//
+//        }else{
+//            NSString *url = @"http://mobile-devapi.collabtic.com//accounts/login?";
+//            NSDictionary* parametersDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                                  [NSString stringWithFormat:@"%@",self.textfield_Login.text], @"email",
+//                                                  [NSString stringWithFormat:@"%@",self.textfield_password.text], @"password",
+//                                                  [NSString stringWithFormat:@"%@",self.textfield_Login.text], @"username",
+//                                                  nil
+//                                                  ];
+//
+//            AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+//            [manager.requestSerializer setValue:@"application/x-www-form-urlencoded; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+//            //you can change timeout value as per your requirment
+//            [manager.requestSerializer setTimeoutInterval:60.0];
+//            manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+//
+//            [manager POST:url parameters:parametersDictionary progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//                NSLog(@"%@",responseObject);
+//                if ([[responseObject valueForKey:@"status"]isEqualToString:@"Failure"]) {
+//                    [self.view makeToast:[responseObject valueForKey:@"message"] duration:3.0 position:CSToastPositionBottom];
+//
+//                }else{
+//                    [self.view makeToast:@"Login Successfull" duration:3.0 position:CSToastPositionBottom];
+//                }
+//
+//            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//                NSLog(@"%@",error);
+//            }];
+//
+//        }
+//
+//    }
 }
 -(void) textFieldDidBeginEditing:(UITextField *)textField {
     
@@ -172,12 +197,22 @@
     [UIView commitAnimations];
 }
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    
+    if (textField == self.textfield_password) {
+        NSString * searchStr = [self.textfield_password.text stringByReplacingCharactersInRange:range withString:string];
+        if ([searchStr length] == 0) {
+            self.button_login.hidden = YES;
+            
+        }else{
+            self.button_login.hidden = NO;
+            
+        }
+    }
+ 
     return YES;
 }
 -(void)hideKeyBoard
 {
-    
+    [self.view endEditing:YES];
     [self viewNormal];
    [self.textfield_password resignFirstResponder];
    
@@ -185,19 +220,20 @@
 }
 
 -(void)viewNormal{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.3];
     if (self.view.frame.origin.y ==0) {
         [self.textfield_Login resignFirstResponder];
         [self.textfield_password resignFirstResponder];
         
     }else{
-    CGRect rect = self.view.frame;
-    rect.origin.y += kOFFSET_FOR_KEYBOARD;
-    rect.size.height -= kOFFSET_FOR_KEYBOARD;
-    self.view.frame = rect;
-  
-    }
+        CGRect rect = self.view.frame;
+        rect.origin.y += kOFFSET_FOR_KEYBOARD;
+        rect.size.height -= kOFFSET_FOR_KEYBOARD;
+        self.view.frame = rect;
+}
     
-      [UIView commitAnimations];
+    [UIView commitAnimations];
 }
 /*
 #pragma mark - Navigation
@@ -210,7 +246,7 @@
 */
 
 - (IBAction)button_login:(UIButton *)sender {
-    
+    [self.view endEditing:YES];
     [self.textfield_Login resignFirstResponder];
     [self.textfield_password resignFirstResponder];
          [self viewNormal];
@@ -221,11 +257,11 @@
                     position:CSToastPositionBottom];
 
     }else if ([self.textfield_password.text isEqualToString:@""]){
-        [self.view makeToast:@"Password should be minimum 6 character"
+        [self.view makeToast:@"Password should be minimum 6 characters"
                     duration:3.0
                     position:CSToastPositionBottom];
     }else if ([self.textfield_password.text length] < 6){
-        [self.view makeToast:@"Password should be minimum 6 character"
+        [self.view makeToast:@"Password should be minimum 6 characters"
                     duration:3.0
                     position:CSToastPositionBottom];
         
@@ -243,7 +279,13 @@
             [self.view makeToast:[responce valueForKey:@"message"] duration:3.0 position:CSToastPositionBottom];
             
         }else{
-            [self.view makeToast:@"Login Successfull" duration:3.0 position:CSToastPositionBottom];
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"logged_in"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            hometabViewController *ViewControllerObj=[storyBoard instantiateViewControllerWithIdentifier:@"homeViewID"];
+           [self.navigationController pushViewController:ViewControllerObj animated:YES];
+            //
+//            [self.view makeToast:@"Login Successfull" duration:3.0 position:CSToastPositionBottom];
         }
         
     } failure:^(NSError *error) {
@@ -255,6 +297,7 @@
 - (IBAction)button_forgot:(UIButton *)sender {
     UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
     forgotViewController *ViewControllerObj=[storyBoard instantiateViewControllerWithIdentifier:@"forgotViewID"];
+    ViewControllerObj.companyLogo = imageCompany;
     [self.navigationController pushViewController:ViewControllerObj animated:YES];
 }
 -(void)keyboardWillShow {

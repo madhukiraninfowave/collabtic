@@ -28,11 +28,13 @@
 //
 //Splash Screen
 #define Splash  (HeaderPath @"accounts/appsplashSlideshow?api_key=dG9wZml4MTIz")
-
+#define loginvalidemail  (HeaderPath @"/accounts/Loginapi")
 #define Login  (HeaderPath @"/accounts/login?")
 #define signupValiedEmail (HeaderPath @"/accounts/checkvaliduser?")
 #define forgotPassword (HeaderPath @"/accounts/resetpassword/accounts/resetpassword?")
-
+#define uploadImage (HeaderPath @"/accounts/profilephoto?")
+#define termscondition (HeaderPath @"/accounts/termsandconditions")
+#define privacypolicy (HeaderPath @"/accounts/privacypolicy")
 
 
 

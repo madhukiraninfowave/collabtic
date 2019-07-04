@@ -24,8 +24,16 @@ UIImagePickerControllerDelegate,UITextFieldDelegate,UIScrollViewDelegate>
 - (IBAction)button_forgot:(UIButton *)sender;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollview_login;
 @property (strong, nonatomic) IBOutlet UILabel *label_login;
-@property (strong, nonatomic) IBOutlet UIImageView *image_icon;
+@property (strong, nonatomic) IBOutlet AsyncImageView *image_icon;
 @property (strong, nonatomic) IBOutlet UIButton *back_login;
 - (IBAction)button_loginBack:(UIButton *)sender;
+#pragma image
+@property (nonatomic,strong)NSString *imageCompany;
+@property (nonatomic,strong)NSString *profileImage;
+
+@property (strong, nonatomic) IBOutlet UIImageView *imageview_company;
+@property (strong, nonatomic) IBOutlet NSString * businessName;
+@property (strong, nonatomic) IBOutlet AsyncImageView *loginprofileimage;
+
 
 @end

@@ -422,7 +422,7 @@ static const NSString * CSToastQueueKey             = @"CSToastQueueKey";
     }
     
     CGFloat topPadding = style.verticalPadding + safeInsets.top;
-    CGFloat bottomPadding = style.verticalPadding + safeInsets.bottom;
+    CGFloat bottomPadding = style.verticalPadding + safeInsets.bottom+80;
     
     if([point isKindOfClass:[NSString class]]) {
         if([point caseInsensitiveCompare:CSToastPositionTop] == NSOrderedSame) {
@@ -447,7 +447,7 @@ static const NSString * CSToastQueueKey             = @"CSToastQueueKey";
 - (instancetype)initWithDefaultStyle {
     self = [super init];
     if (self) {
-        self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
+        self.backgroundColor = [UIColor colorWithRed:220/255.0f green:109/255.0f blue:23/255.0f alpha:1.0];
         self.titleColor = [UIColor whiteColor];
         self.messageColor = [UIColor whiteColor];
         self.maxWidthPercentage = 0.8;

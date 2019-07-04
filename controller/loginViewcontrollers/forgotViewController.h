@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AsyncImageView.h"
 
 
 @interface forgotViewController : UIViewController<UITextFieldDelegate,UIAlertViewDelegate>
@@ -15,5 +16,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *button_reset;
 - (IBAction)button_back:(UIButton *)sender;
 @property (strong, nonatomic) IBOutlet UILabel *label_colered;
+@property (strong, nonatomic) IBOutlet AsyncImageView *imageview_forgotlogo;
+@property(nonatomic,strong)NSString*companyLogo;
 
 @end

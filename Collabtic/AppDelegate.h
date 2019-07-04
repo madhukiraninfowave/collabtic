@@ -12,6 +12,7 @@
 #import "Reachability.h"
 
 
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>{
       Reachability * internetReach;
      DACircularProgressView *progressView;
@@ -21,7 +22,10 @@
 @property (strong, nonatomic)NSString *businessName;
 @property (strong, nonatomic)NSString *businessLogo;
 @property (strong, nonatomic)NSString *businessMailid;
+@property (strong, nonatomic)NSString *passWord;
 @property (strong, nonatomic)UIImage *pickedImage;
+@property (strong, nonatomic)NSURL *pickedImageUrl;
+@property (nonatomic, assign)BOOL checkbutton,loginStatus;
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic)UIView *loaderView;

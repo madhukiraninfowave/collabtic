@@ -14,17 +14,21 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - MCFireworksButton (0.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - MCFireworksButton
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - MCFireworksButton
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  MCFireworksButton: ba531989811e2483e1b32e243fa2f545fd4fb779
 
-PODFILE CHECKSUM: fc8c446a2e96f34dfa3ccf661a73ee759339f7b8
+PODFILE CHECKSUM: 82f0b6a1bb9981ac0dd201aa7ba842cbfc36cfaf
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1
