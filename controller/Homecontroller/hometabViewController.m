@@ -8,16 +8,23 @@
 
 #import "hometabViewController.h"
 #import "ThreadsViewController.h"
+#import "AppDelegate.h"
+#import "menuViewController.h"
 
 
 @interface hometabViewController ()
 
 @end
 
-@implementation hometabViewController
+@implementation hometabViewController{
+    
+     AppDelegate *appDelegate;
+}
 @dynamic tabBar;
 - (void)viewDidLoad {
     [super viewDidLoad];
+     appDelegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
+      
     // Do any additional setup after loading the view.
    
 //    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tappedRightButton)];
@@ -89,6 +96,12 @@
         ThreadsViewController *marketViewcontroller=[tabar.viewControllers objectAtIndex:1];
         [self.navigationController pushViewController:marketViewcontroller animated:NO];
 
+    }else if ([[segue identifier] isEqualToString:@"menuViewID"]){
+        
+        UITabBarController *tabar=segue.destinationViewController;
+        menuViewController *marketViewcontroller=[tabar.viewControllers objectAtIndex:1];
+        [self.navigationController pushViewController:marketViewcontroller animated:NO];
+        
     }
 }
 

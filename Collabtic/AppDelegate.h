@@ -18,7 +18,8 @@
      DACircularProgressView *progressView;
      NSTimer *timer;
 }
-@property (strong, nonatomic)NSString *loginID;
+@property (nonatomic)int loginID;
+@property (nonatomic)int domineID;
 @property (strong, nonatomic)NSString *businessName;
 @property (strong, nonatomic)NSString *businessLogo;
 @property (strong, nonatomic)NSString *businessMailid;

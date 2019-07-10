@@ -1914,8 +1914,8 @@ Add additional users after setup</string>
                     <connections>
                         <outlet property="delegate" destination="aOL-PC-bn2" id="6sc-JV-U1s"/>
                         <outlet property="tabBar" destination="aOL-PC-bn2" id="mVf-Xd-ofC"/>
-                        <segue destination="MI4-Ph-cfh" kind="relationship" relationship="viewControllers" id="7v0-ic-4Yx"/>
                         <segue destination="hwR-3i-v9f" kind="relationship" relationship="viewControllers" id="I2v-ir-AA5"/>
+                        <segue destination="MI4-Ph-cfh" kind="relationship" relationship="viewControllers" id="7v0-ic-4Yx"/>
                         <segue destination="4XG-e1-DtP" kind="relationship" relationship="viewControllers" id="sOa-px-QVe"/>
                         <segue destination="tix-O3-a6b" kind="relationship" relationship="viewControllers" id="otQ-ac-ySw"/>
                         <segue destination="Ng4-dE-vOp" kind="relationship" relationship="viewControllers" id="4ZY-zq-6Yv"/>
@@ -1937,9 +1937,9 @@ Add additional users after setup</string>
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
                                 <color key="backgroundColor" red="0.84705882349999995" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" style="plain" allowsSelection="NO" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eje-Gt-eeR">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" style="plain" separatorInsetReference="fromAutomaticInsets" sectionIndexMinimumDisplayRowCount="1" allowsSelection="NO" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eje-Gt-eeR">
                                 <rect key="frame" x="0.0" y="127" width="414" height="686"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.85748430365296791" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="hwR-3i-v9f" id="ZOR-kh-aoa"/>

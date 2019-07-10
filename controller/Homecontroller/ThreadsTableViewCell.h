@@ -21,11 +21,35 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) IBOutlet UILabel *label_edited;
 @property (strong, nonatomic) IBOutlet UILabel *label_username;
 @property (strong, nonatomic) IBOutlet UILabel *label_username2;
-@property (strong, nonatomic) IBOutlet UIImageView *imageview_badge;
+@property (strong, nonatomic) IBOutlet AsyncImageView *imageview_badge;
 @property (strong, nonatomic) IBOutlet UILabel *label_make;
 @property (strong, nonatomic) IBOutlet UILabel *label_title;
 @property (strong, nonatomic) IBOutlet UILabel *label_description;
 @property (strong, nonatomic) IBOutlet UIView *view_imagethubnails;
+@property (strong, nonatomic) IBOutlet AsyncImageView *imageview_image1;
+@property (strong, nonatomic) IBOutlet UILabel *label_imageview1;
+@property (strong, nonatomic) IBOutlet AsyncImageView *imageview_image2;
+@property (strong, nonatomic) IBOutlet UILabel *label_imageview2;
+@property (strong, nonatomic) IBOutlet MCFireworksButton *button_share;
+@property (strong, nonatomic) IBOutlet MCFireworksButton *button_pin;
+@property (strong, nonatomic) IBOutlet UILabel *label_likes;
+@property (strong, nonatomic) IBOutlet UILabel *label_pins;
+@property (strong, nonatomic) IBOutlet UILabel *label_views;
+@property (strong, nonatomic) IBOutlet UILabel *label_reply;
+// mechine model related
+
+@property (strong, nonatomic) IBOutlet UILabel *label_machinename;
+@property (strong, nonatomic) IBOutlet UIImageView *imageview_machine;
+@property (strong, nonatomic) IBOutlet UILabel *label_machineno;
+@property (strong, nonatomic) IBOutlet UIImageView *imageview_machineDate;
+@property (strong, nonatomic) IBOutlet UILabel *label_machineDate;
+@property (strong, nonatomic) IBOutlet UILabel *label_fistline;
+@property (strong, nonatomic) IBOutlet UILabel *label_baseline2;
+
+@property (strong, nonatomic) IBOutlet UILabel *label_lastline3;
+@property (strong, nonatomic) IBOutlet AsyncImageView *imageview_center;
+@property (strong, nonatomic) IBOutlet UILabel *label_centerimage;
+
 
 @end
 

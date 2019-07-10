@@ -31,6 +31,7 @@
 		752A62AC22B23FE900149EAB /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A629F22B23FE900149EAB /* Roboto-Thin.ttf */; };
 		752A62AD22B23FE900149EAB /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A62A022B23FE900149EAB /* Roboto-Black.ttf */; };
 		75315DA922B126DC00C89E1B /* WebviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75315DA822B126DC00C89E1B /* WebviewViewController.m */; };
+		7534748C22D0BDD3007715ED /* menuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7534748B22D0BDD3007715ED /* menuViewController.m */; };
 		7538F29022C73B8A0031539A /* homeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7538F28F22C73B8A0031539A /* homeViewController.m */; };
 		7538F29722C74D850031539A /* hometabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7538F29622C74D850031539A /* hometabViewController.m */; };
 		756F76B222C5DF39004FFACC /* loginValidationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 756F76B122C5DF39004FFACC /* loginValidationViewController.m */; };
@@ -107,6 +108,8 @@
 		752A62A022B23FE900149EAB /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		75315DA722B126DC00C89E1B /* WebviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebviewViewController.h; sourceTree = "<group>"; };
 		75315DA822B126DC00C89E1B /* WebviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebviewViewController.m; sourceTree = "<group>"; };
+		7534748A22D0BDD3007715ED /* menuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = menuViewController.h; sourceTree = "<group>"; };
+		7534748B22D0BDD3007715ED /* menuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = menuViewController.m; sourceTree = "<group>"; };
 		7538F28E22C73B8A0031539A /* homeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = homeViewController.h; sourceTree = "<group>"; };
 		7538F28F22C73B8A0031539A /* homeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = homeViewController.m; sourceTree = "<group>"; };
 		7538F29522C74D850031539A /* hometabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hometabViewController.h; sourceTree = "<group>"; };
@@ -242,6 +245,8 @@
 				751EB32A22CB6E22000CB8A2 /* ThreadsTableViewCell.h */,
 				751EB32B22CB6E22000CB8A2 /* ThreadsTableViewCell.m */,
 				751EB32C22CB6E22000CB8A2 /* ThreadsTableViewCell.xib */,
+				7534748A22D0BDD3007715ED /* menuViewController.h */,
+				7534748B22D0BDD3007715ED /* menuViewController.m */,
 			);
 			path = Homecontroller;
 			sourceTree = "<group>";
@@ -642,6 +647,7 @@
 				DC8FE12C22A8DAD6001D96D2 /* ViewController.m in Sources */,
 				7518ACAA22B103AF00452247 /* tearmsViewController.m in Sources */,
 				750ED97C22B4DE5F00288953 /* SignupfinalViewController.m in Sources */,
+				7534748C22D0BDD3007715ED /* menuViewController.m in Sources */,
 				751EB32322CB6BEB000CB8A2 /* ThreadsViewController.m in Sources */,
 				7518ACA722B0B63600452247 /* SignUPViewController.m in Sources */,
 				DC8FE13722A8DAE7001D96D2 /* main.m in Sources */,

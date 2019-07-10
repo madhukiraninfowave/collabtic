@@ -25,7 +25,7 @@
 @end
 
 @implementation AppDelegate
-@synthesize loginID,internetWorking,loaderView,businessName,businessMailid,businessLogo,pickedImage,passWord,pickedImageUrl,checkbutton,loginStatus;
+@synthesize loginID,internetWorking,loaderView,businessName,businessMailid,businessLogo,pickedImage,passWord,pickedImageUrl,checkbutton,loginStatus,domineID;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UINavigationController *navController;
@@ -52,7 +52,7 @@
     progressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake((self.window.frame.size.width/2)-25,(self.window.frame.size.height/2)-65,50,50)];
     progressView.roundedCorners = YES;
     progressView.trackTintColor = [UIColor whiteColor];
-    progressView.progressTintColor= [UIColor lightGrayColor];
+    progressView.progressTintColor= [UIColor colorWithRed:216/255.0f green:61/255.0f blue:61/255.0f alpha:1.0f];
     progressView.center=self.loaderView.center;
     [self.loaderView addSubview:progressView];
     [self startAnimation];

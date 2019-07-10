@@ -279,6 +279,8 @@
             [self.view makeToast:[responce valueForKey:@"message"] duration:3.0 position:CSToastPositionBottom];
             
         }else{
+            self->appDelegate.domineID = [[responce valueForKey:@"domain_id"] intValue];
+             self->appDelegate.loginID = [[responce valueForKey:@"Userid"] intValue];
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"logged_in"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];

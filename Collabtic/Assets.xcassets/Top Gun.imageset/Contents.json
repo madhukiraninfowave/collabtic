@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "sparkle.png",
+      "filename" : "Top Gun.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Top Gun2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Top Gun3x.png",
       "scale" : "3x"
     }
   ],

@@ -36,9 +36,8 @@
 #define termscondition (HeaderPath @"/accounts/termsandconditions")
 #define privacypolicy (HeaderPath @"/accounts/privacypolicy")
 
+//threads page
+#define Threads  (HeaderPath @"search/threadwithfilter?")
 
 
-//// Granola / Health Kit
-//
-//#define SaveHRAAnswer (HeaderPath @"members/saveHRA?username=%@")
 

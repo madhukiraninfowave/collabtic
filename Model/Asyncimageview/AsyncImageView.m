@@ -604,7 +604,7 @@ NSString *const AsyncImageErrorKey = @"error";
 {
 	self.showActivityIndicator = (self.image == nil);
 	self.activityIndicatorStyle = UIActivityIndicatorViewStyleWhite;
-    self.activityIndicatorColor = [UIColor lightGrayColor];
+    self.activityIndicatorColor = [UIColor colorWithRed:216/255.0f green:61/255.0f blue:61/255.0f alpha:1];
 	self.crossfadeDuration = 0.4;
 }
 
