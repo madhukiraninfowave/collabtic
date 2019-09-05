@@ -50,6 +50,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) IBOutlet AsyncImageView *imageview_center;
 @property (strong, nonatomic) IBOutlet UILabel *label_centerimage;
 
+@property (strong, nonatomic) IBOutlet UIImageView *label_play;
+@property (strong, nonatomic) IBOutlet UIImageView *lable_play2;
 
 @end
 

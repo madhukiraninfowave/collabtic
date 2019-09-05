@@ -7,6 +7,7 @@
 //
 
 #import "ThreadsTableViewCell.h"
+#import<QuartzCore/QuartzCore.h>
 
 @implementation ThreadsTableViewCell
 
@@ -17,6 +18,10 @@
     self.imageview_profile.layer.cornerRadius = self.imageview_profile.frame.size.height/2;
     self.label_online.clipsToBounds = YES;
     self.label_online.layer.cornerRadius = self.label_online.frame.size.height/2;
+    self.label_online.layer.borderWidth = 3.0;
+    self.label_online.layer.masksToBounds = YES;
+    [self.label_online.layer setBorderColor:[UIColor whiteColor].CGColor];
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

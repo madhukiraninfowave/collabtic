@@ -7,16 +7,18 @@
 //
 
 #import "ThreadsViewController.h"
-#import "ThreadsTableViewCell.h"
+//#import "ThreadsTableViewCell.h"
+#import "ThreadsCell.h"
 #import "MCFireworksButton.h"
 #import "UIView+Toast.h"
 #import <AFNetworking.h>
 #import "WebUrl.h"
 #import "AppDelegate.h"
 #import <UIKit/UIView.h>
+#import "detailsThreadViewController.h"
 
 @interface ThreadsViewController (){
-     ThreadsTableViewCell * cell;
+     ThreadsCell * cell;
     BOOL _selected;
     NSMutableArray *ary_Threads;
 }
@@ -35,26 +37,28 @@
     - (void)viewDidLoad {
     [super viewDidLoad];
        appDelegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
-        [self.view addSubview:appDelegate.loaderView];
+        
+        
     // Do any additional setup after loading the view.
     
-    self.table_threads.estimatedRowHeight = 100;
+    self.table_threads.estimatedRowHeight = 500;
 //
-//    self.table_threads.rowHeight = UITableViewAutomaticDimension;
-   [self.table_threads registerNib:[UINib nibWithNibName:@"ThreadsTableViewCell" bundle:nil] forCellReuseIdentifier:@"ThreadsID"];
-        [self.view addSubview:appDelegate.loaderView];
+    self.table_threads.rowHeight = UITableViewAutomaticDimension;
+//   [self.table_threads registerNib:[UINib nibWithNibName:@"ThreadsTableViewCell" bundle:nil] forCellReuseIdentifier:@"ThreadsID"];
+        //[self.view addSubview:appDelegate.loaderView];
        
         self.table_threads.dataSource = self;
         self.table_threads.delegate = self;
         heightAtIndexPath = [NSMutableDictionary new];
-        self.table_threads.estimatedRowHeight = UITableViewAutomaticDimension;
-        self.table_threads.rowHeight = UITableViewAutomaticDimension;
+       // self.table_threads.estimatedRowHeight = UITableViewAutomaticDimension;
+        //self.table_threads.rowHeight = UITableViewAutomaticDimension;
+        [self.view addSubview:appDelegate.loaderView];
+        [self ThreadsAPICalling:[NSString stringWithFormat:@"0"] limit:[NSString stringWithFormat:@"30"]];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
      [super viewWillAppear:animated];
-     [self ThreadsAPICalling:[NSString stringWithFormat:@"0"] limit:[NSString stringWithFormat:@"30"]];
-    
+
     
 }
 #pragma Tableview delegates
@@ -84,39 +88,45 @@
 //}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%@",ary_Threads);
-
-    static NSString *simpleTableIdentifier = @"ThreadsID";
+    //NSLog(@"%@",ary_Threads);
+     ThreadsCell *cell1;
+    cell1=[tableView dequeueReusableCellWithIdentifier:@"ThreadsCellID"];
+   
     
-    ThreadsTableViewCell *cell1 = (ThreadsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-  
-    cell1.button_thumb.particleImage = [UIImage imageNamed:@"sparkle"];
-    cell1.button_thumb.particleScale = 0.05;
-    cell1.button_thumb.particleScaleRange = 0.02;
-    cell1.button_pin.particleScale = 0.05;
-    cell1.button_pin.particleScaleRange = 0.02;
-    self.table_threads.delegate = self;
-    if (!cell1)
+    if (cell1==nil)
     {
     
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ThreadsTableViewCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
+        cell1 = [[ThreadsCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                           reuseIdentifier:@"ThreadsCellID"];
         
     }
-    [cell1.contentView sizeToFit];
-    [cell1.contentView layoutSubviews];
-    cell1.view_imagethubnails.translatesAutoresizingMaskIntoConstraints = NO;
+   // [cell1.contentView sizeToFit];
+//    [cell1 setSelectionStyle:UITableViewCellSelectionStyleNone];
+//    [cell1 updateConstraintsIfNeeded];
+//    [cell1.contentView layoutSubviews];
+//    [cell1.contentView sizeToFit];
+
+    //cell1.view_imagethubnails.hidden = YES;
+//    cell1.button_thumb.particleImage = [UIImage imageNamed:@"sparkle"];
+//    cell1.button_thumb.particleScale = 0.05;
+//    cell1.button_thumb.particleScaleRange = 0.02;
+//    cell1.button_pin.particleImage = [UIImage imageNamed:@"sparkle"];
+//    cell1.button_pin.particleScale = 0.05;
+//    cell1.button_pin.particleScaleRange = 0.02;
+    //cell1.view_imagethubnails.translatesAutoresizingMaskIntoConstraints = NO;
+    [cell1.imageview_profile setImage:[UIImage imageNamed:@"profile"]];
     [cell1.imageview_profile setImageURL:[NSURL URLWithString:[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"profile_image"]]];
-    
+//
     [cell1.imageview_badge setImageURL:[NSURL URLWithString:[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"badge_image"]]];
     
     cell1.label_username2.text = [NSString stringWithFormat:@"%@",[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"badgestatus"]];
     cell1.label_username.text = [NSString stringWithFormat:@"%@",[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"user_name"]];
-    cell1.lbl_date.text = [NSString stringWithFormat:@"%@",[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"created_on"]];
+    //
+    cell1.lbl_date.text = [self dateConverter:[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"created_on_new"]];
     cell1.label_title.text = [NSString stringWithFormat:@"%@",[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"thread_title"]];
     cell1.label_description.text = [self convertHtmlPlainText:[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"content"]];
     if ([[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"trim"] count]!=0) {
-        cell1.label_make.text = [NSString stringWithFormat:@"%@",[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"trim"] objectAtIndex:0]];
+   cell1.label_make.text = [NSString stringWithFormat:@"%@",[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"trim"] objectAtIndex:0]];
     }if ([[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"like_count"] intValue] !=0) {
         
         if ([[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"like_count"] intValue]>1) {
@@ -162,7 +172,7 @@
     if (![[NSString stringWithFormat:@"%@",[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"model_name"]] isEqualToString:@""]){
         cell1.label_machineno.hidden = NO;
         cell1.imageview_machine.hidden = NO;
-         cell1.imageview_machineDate.hidden = YES;
+        cell1.imageview_machineDate.hidden = YES;
         cell1.label_machineno.text = [NSString stringWithFormat:@"%@",[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"model_name"]];
         
     }
@@ -170,8 +180,7 @@
         cell1.imageview_machineDate.hidden = NO;
         cell1.label_machineDate.text = [NSString stringWithFormat:@"%@",[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"model_year"]];
     }
-   
- 
+
     cell1.button_thumb.tag = indexPath.row;
     [cell1.button_thumb addTarget:self action:@selector(myAction:) forControlEvents:UIControlEventTouchUpInside];
     cell1.button_pin.tag = indexPath.row;
@@ -186,142 +195,208 @@
         cell1.label_imageview2.hidden = YES;
         cell1.imageview_center.hidden = YES;
         cell1.label_centerimage.hidden = YES;
-    }else{
-        cell1.view_imagethubnails.hidden = NO;
-        cell1.imageview_image1.hidden = NO;
-        cell1.imageview_image2.hidden = NO;
-        cell1.label_imageview1.hidden = NO;
-        cell1.label_imageview2.hidden = NO;
-    }
-    if ([[NSString stringWithFormat:@"%@",[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"availability"]] isEqualToString:@"0"]) {
-        cell1.label_online.backgroundColor = [UIColor colorWithRed:216/255.0f green:61/255.0f blue:61/255.0f alpha:1];
-    }else if ([[NSString stringWithFormat:@"%@",[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"availability"]] isEqualToString:@"1"]){
-          cell1.label_online.backgroundColor = [UIColor greenColor];
-    }
-    
-    
-   return cell1;
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(ThreadsTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSNumber *height = @(cell.frame.size.height);
-    [heightAtIndexPath setObject:height forKey:indexPath];
-        static NSString *simpleTableIdentifier = @"ThreadsID";
-    ThreadsTableViewCell *cell1 = (ThreadsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    if (![[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] count]) {
+        cell1.label_play.hidden = YES;
+         cell1.labelplay_center.hidden = YES;
+        cell1.lable_play2.hidden = YES;
+         cell1.view_imagethubnails.hidden = YES;
         cell1.view_imagethubnails.hidden = YES;
+        cell1.imageview_height.constant = 0;
+       cell1.labelplay_center.hidden = YES;
+        //[cell updateConstraintsIfNeeded];
+        //[cell layoutSubviews];
+       
+    }else{
+        cell1.imageview_height.constant = 167;
+        //[cell updateConstraintsIfNeeded];
+       // [cell layoutSubviews];
+        if ([[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] count]>1) {
+            cell1.imageview_image1.image = nil;
+             cell1.imageview_image2.image = nil;
+            cell1.view_imagethubnails.hidden = NO;
+            cell1.imageview_image1.hidden = NO;
+            cell1.imageview_image2.hidden = NO;
+            cell1.label_imageview1.hidden = NO;
+            cell1.label_imageview2.hidden = NO;
+            cell1.imageview_center.hidden = YES;
+            cell1.label_centerimage.hidden = YES;
+            cell1.labelplay_center.hidden = YES;
+            if ([[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:1] valueForKey:@"flag_id"] intValue]==2){
+                 [cell1.imageview_image2 setImage:[UIImage imageNamed:@"Video"]];
+                [cell1.imageview_image2 setImageURL:[NSURL URLWithString:[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:1] valueForKey:@"poster_image"]]];
+                 cell1.label_imageview2.text = [NSString stringWithFormat:@"%@",[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:1] valueForKey:@"original_name"]];
+                cell1.lable_play2.hidden = NO;
+            }else if ([[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:1] valueForKey:@"flag_id"] intValue]==6) {
+                     [cell1.imageview_image2 setImage:[UIImage imageNamed:@"Link"]];
+                      cell1.label_imageview2.text = [NSString stringWithFormat:@"%@",[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:1] valueForKey:@"file_caption"]];
+                    
+                }else if ([[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:1] valueForKey:@"flag_id"] intValue]==3){
+                     [cell1.imageview_image2 setImage:[UIImage imageNamed:@"Audio"]];
+                     cell1.label_imageview2.text = [NSString stringWithFormat:@"%@",[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:1] valueForKey:@"original_name"]];
+                    
+                }else if ([[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:1] valueForKey:@"flag_id"] intValue]==1){
+                    [cell1.imageview_image2 setImage:[UIImage imageNamed:@"thembnail"]];
+                    [cell1.imageview_image2 setImageURL:[NSURL URLWithString:[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:1] valueForKey:@"thumb_file_path"]]];
+                    cell1.label_imageview2.text = [NSString stringWithFormat:@"%@",[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:1] valueForKey:@"original_name"]];
+                    
+                }else if ([[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:1] valueForKey:@"flag_id"] intValue]==4){
+                    
+                    [cell1.imageview_image2 setImage:[UIImage imageNamed:@"Pdf"]];
+                    cell1.label_imageview2.text = [NSString stringWithFormat:@"%@",[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:1] valueForKey:@"original_name"]];
+                    
+                }else{
+//                    if ([[[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:1] valueForKey:@"file_path"] pathExtension]isEqualToString:@"xlsx"]) {
+                        [cell1.imageview_image2 setImage:[UIImage imageNamed:@"office"]];
+                        cell1.label_imageview2.text = [NSString stringWithFormat:@"%@",[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:1] valueForKey:@"original_name"]];
+                  //  }
+                    
+                    
+                 
+                 }
+//                else{
+//                    [cell1.imageview_image2 setImage:[UIImage imageNamed:@"thembnail"]];
+//                 [cell1.imageview_image2 setImageURL:[NSURL URLWithString:[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:1] valueForKey:@"thumb_file_path"]]];
+//                 cell1.label_imageview2.text = [NSString stringWithFormat:@"%@",[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:1] valueForKey:@"original_name"]];
+//            }
+           
+            if ([[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"flag_id"] intValue]==2) {
+                [cell1.imageview_image1 setImage:[UIImage imageNamed:@"Video"]];
+                   [cell1.imageview_image1 setImageURL:[NSURL URLWithString:[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"poster_image"]]];
+                cell1.label_imageview1.text = [NSString stringWithFormat:@"%@",[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"original_name"]];
+
+                  cell1.label_play.hidden = NO;
+            }else if ([[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"flag_id"] intValue]==1){
+                  [cell1.imageview_image1 setImage:[UIImage imageNamed:@"thembnail"]];
+                [cell1.imageview_image1 setImageURL:[NSURL URLWithString:[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"thumb_file_path"]]];
+                cell1.label_imageview1.text = [NSString stringWithFormat:@"%@",[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"original_name"]];
+            }else if ([[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"flag_id"] intValue]==5){
+                 [cell1.imageview_image1 setImage:[UIImage imageNamed:@"office"]];
+                cell1.label_imageview1.text = [NSString stringWithFormat:@"%@",[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"original_name"]];
+            }else if ([[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:1] valueForKey:@"flag_id"] intValue]==6) {
+                [cell1.imageview_image1 setImage:[UIImage imageNamed:@"Link"]];
+                cell1.label_imageview1.text = [NSString stringWithFormat:@"%@",[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"file_caption"]];
+                
+            }
+            else if ([[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:1] valueForKey:@"flag_id"] intValue]==3){
+                      [cell1.imageview_image1 setImage:[UIImage imageNamed:@"Audio"]];
+                 cell1.label_imageview1.text = [NSString stringWithFormat:@"%@",[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"original_name"]];
+                   cell1.label_play.hidden = NO;
+            }else if ([[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:1] valueForKey:@"flag_id"] intValue]==4){
+                [cell1.imageview_image1 setImage:[UIImage imageNamed:@"Pdf"]];
+                cell1.label_imageview1.text = [NSString stringWithFormat:@"%@",[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"original_name"]];
+            }
+            }}
+    
+    if ([[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] count]==1){
+        cell1.imageview_center.image = nil;
+        cell1.imageview_image2.image = nil;
+        cell1.view_imagethubnails.hidden = NO;
         cell1.imageview_image1.hidden = YES;
         cell1.imageview_image2.hidden = YES;
         cell1.label_imageview1.hidden = YES;
         cell1.label_imageview2.hidden = YES;
-        cell1.imageview_center.hidden = YES;
-        cell1.label_centerimage.hidden = YES;
-        
- 
-    }else{
-        
-        cell1.view_imagethubnails.hidden = NO;
-        cell1.view_imagethubnails.hidden = NO;
-        cell1.imageview_image1.hidden = NO;
-        cell1.imageview_image2.hidden = NO;
-        cell1.label_imageview1.hidden = NO;
-        cell1.label_imageview2.hidden = NO;
+        cell1.imageview_center.hidden = NO;
+      
+        cell1.label_play.hidden= YES;
+        cell1.lable_play2.hidden = YES;
+        if ([[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"flag_id"] intValue]==2) {
+             [cell1.imageview_center setImage:[UIImage imageNamed:@"Video"]];
+            [cell1.imageview_center setImageURL:[NSURL URLWithString:[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"poster_image"]]];
+            cell1.labelplay_center.hidden = NO;
+              cell1.label_centerimage.hidden = NO;
+             cell1.label_centerimage.text = [NSString stringWithFormat:@"%@",[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"original_name"]];
+        }else if ([[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"flag_id"] intValue]==5){
+            [cell1.imageview_center setImage:[UIImage imageNamed:@"office"]];
+            cell1.label_centerimage.text = [NSString stringWithFormat:@"%@",[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"original_name"]];
+            
+            
+            
+        }else if ([[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"flag_id"] intValue]==3){
+            [cell1.imageview_center setImage:[UIImage imageNamed:@"Audio"]];
+             cell1.labelplay_center.hidden = NO;
+            cell1.label_centerimage.text = [NSString stringWithFormat:@"%@",[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"original_name"]];
+            
+            
+        }else if ([[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"flag_id"] intValue]==6){
+             cell1.labelplay_center.hidden = YES;
+            [cell1.imageview_center setImage:[UIImage imageNamed:@"Link"]];
+            cell1.label_centerimage.text = [NSString stringWithFormat:@"%@",[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"file_caption"]];
+            cell1.label_centerimage.hidden = NO;
+            
+        }else if ([[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"flag_id"] intValue]==4){
+            //thembnail
+           
+             [cell1.imageview_center setImageURL:[NSURL URLWithString:[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"thumb_file_path"]]];
+             cell1.label_centerimage.text = [NSString stringWithFormat:@"%@",[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"original_name"]];
+               cell1.label_centerimage.hidden = NO;
+        }else if ([[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"flag_id"] intValue]==1){
+            
+             [cell1.imageview_center setImage:[UIImage imageNamed:@"thembnail"]];
+            [cell1.imageview_center setImageURL:[NSURL URLWithString:[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"thumb_file_path"]]];
+            cell1.label_centerimage.text = [NSString stringWithFormat:@"%@",[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"original_name"]];
+              cell1.label_centerimage.hidden = NO;
+            
+        }
        
-        if ([[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] count]==1){
-            cell1.view_imagethubnails.hidden = NO;
-            cell.imageview_image1.hidden = YES;
-            cell.imageview_image2.hidden = YES;
-            cell.label_imageview1.hidden = YES;
-            cell.label_imageview2.hidden = YES;
-            cell.imageview_center.hidden = NO;
-            cell.label_centerimage.hidden = NO;
-            
-           
-           
-        }
+        
+       
         
     }
-    if ([[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"like_count"] intValue] !=0) {
+    if ([[NSString stringWithFormat:@"%@",[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"availability"]] isEqualToString:@"0"]) {
+        cell1.label_online.backgroundColor = [UIColor colorWithRed:216/255.0f green:61/255.0f blue:61/255.0f alpha:1];
+    }else if ([[NSString stringWithFormat:@"%@",[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"availability"]] isEqualToString:@"1"]){
         
-        if ([[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"like_count"] intValue]>1) {
-            cell.label_likes.text = [NSString stringWithFormat: @"%@ Likes", [[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"like_count"]];
-        }else{
-            cell.label_likes.text = [NSString stringWithFormat: @"%@ Like", [[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"like_count"]];
-        }
-        
-    } if ([[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"pin_count"] intValue] !=0){
-        if ([[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"pin_count"] intValue]>1) {
-            cell.label_pins.text = [NSString stringWithFormat: @"%@ pins", [[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"pin_count"]];
-        }else{
-            
-            cell.label_pins.text = [NSString stringWithFormat: @"%@ pin", [[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"pin_count"]];
-        }
-        
-        
-    }if(![[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"view"]isKindOfClass:[NSNull class]] && [[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"view"] intValue]!=0) {
-        if ([[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"view"] intValue]>1) {
-            cell.label_views.text = [NSString stringWithFormat: @"%@ views", [[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"view"]];
-        }else{
-            cell.label_views.text = [NSString stringWithFormat: @"%@ view", [[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"view"]];
-        }
-        
-        
+          cell1.label_online.backgroundColor = [UIColor greenColor];
     }
+       // [cell1 setSelectionStyle:UITableViewCellSelectionStyleNone];
+//        [cell1 updateConstraintsIfNeeded];
+//        [cell1.contentView sizeToFit];
+//        [cell1.contentView layoutSubviews];
     
-    if ([[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"comment"] intValue]!=0) {
-        if ([[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"comment"] intValue]>1) {
-            cell.label_views.text = [NSString stringWithFormat: @"%@ comments", [[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"comment"]];
-        }else{
-            cell.label_views.text = [NSString stringWithFormat: @"%@ comment", [[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"comment"]];
-        }
-    }
-    if ([[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] count]!=0 ) {
-        
-        [cell.imageview_image1 setImageURL:[NSURL URLWithString:[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"thumb_file_path"]]];
-        cell.label_imageview1.text = [NSString stringWithFormat:@"%@",[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"original_name"]];
-            cell.label_centerimage.text = [NSString stringWithFormat:@"%@",[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"original_name"]];
-    
-            [cell.imageview_center setImageURL:[NSURL URLWithString:[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:0] valueForKey:@"thumb_file_path"]]];
+   return cell1;
+}
 
-        
-        if ([[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] count]>1) {
-            if ([[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:1] valueForKey:@"file_type"]isEqualToString:@"video/mp4"]) {
-                [cell.imageview_image2 setImageURL:[NSURL URLWithString:[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:1] valueForKey:@"poster_image"]]];
-                     cell.label_imageview2.text = [NSString stringWithFormat:@"%@",[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:1] valueForKey:@"original_name"]];
-                
-            }else{
-                [cell.imageview_image2 setImageURL:[NSURL URLWithString:[[[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] objectAtIndex:1] valueForKey:@"thumb_file_path"]]];
-                
-            }
-        }
-        
-    }
-    if([indexPath row] == ((NSIndexPath*)[[tableView indexPathsForVisibleRows] lastObject]).row){
-        NSLog(@"end of loading");
-        //end of loading
-//        [self Reload];
-    }
+- (void)tableView:(UITableView *)tableView willDisplayCell:(ThreadsCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    NSNumber *height = @(cell.frame.size.height);
+//    [heightAtIndexPath setObject:height forKey:indexPath];
+//        static NSString *simpleTableIdentifier = @"ThreadsID";
+//    ThreadsCell *cell1 = (ThreadsCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+
+
 }
 
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    ThreadsTableViewCell * cell1 = [tableView dequeueReusableCellWithIdentifier:@"ThreadsID"];
-    if (![[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] count]) {
-       return cell1.contentView.frame.size.height-cell1.view_imagethubnails.frame.size.height;
-    }else{
-        return cell1.contentView.frame.size.height ;
-    }
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    ThreadsCell* cell1 = [tableView dequeueReusableCellWithIdentifier:@"ThreadsCellID"];
+////    if (![[[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"image"] count]) {
+////       return cell1.contentView.frame.size.height-cell1.view_imagethubnails.frame.size.height;
+////    }else{
+//    return UITableViewAutomaticDimension;
+//    //}
+//
+//
+//}
+//
+//
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //NSLog(@"ary_Threads%@",ary_Threads);
+    UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    detailsThreadViewController *ViewControllerObj=[storyBoard instantiateViewControllerWithIdentifier:@"detailsThreadViewID"];
+    ViewControllerObj.threadID = [[ary_Threads objectAtIndex:indexPath.row] valueForKey:@"thread_id"];
     
-    
+    [self.navigationController pushViewController:ViewControllerObj animated:YES];
 }
+
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSNumber *height = [heightAtIndexPath objectForKey:indexPath];
-    if(height) {
-        return height.floatValue;
-    } else {
+//    NSNumber *height = [heightAtIndexPath objectForKey:indexPath];
+//    if(height) {
+//        return height.floatValue;
+//    } else {
         return UITableViewAutomaticDimension;
-    }
+    //}
 }
 -(void)Reload{
     [self.table_threads reloadData];
@@ -329,11 +404,11 @@
 -(NSString *)dateConverter:(NSString *)str{
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MMM d, yyyy,HH:mm:ss a"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSDate *date  = [dateFormatter dateFromString:str];
     
     // Convert to new Date Format
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dateFormatter setDateFormat:@"MMM dd, yyyy h:mm aa"];
     NSString *newDate = [dateFormatter stringFromDate:date];
     
     
@@ -353,7 +428,7 @@
     
     UIButton *button=(UIButton *)sender;
     NSIndexPath *indexpath = [NSIndexPath indexPathForRow:button.tag inSection:0];
-    ThreadsTableViewCell *tappedCell = (ThreadsTableViewCell *)[self.table_threads cellForRowAtIndexPath:indexpath];
+    ThreadsCell *tappedCell = (ThreadsCell *)[self.table_threads cellForRowAtIndexPath:indexpath];
     if ([tappedCell.button_thumb.imageView.image isEqual:[UIImage imageNamed:@"Like"]])
     {
         [tappedCell.button_thumb popOutsideWithDuration:0.5];
@@ -371,7 +446,7 @@
     
     UIButton *button=(UIButton *)sender;
     NSIndexPath *indexpath = [NSIndexPath indexPathForRow:button.tag inSection:0];
-    ThreadsTableViewCell *tappedCell = (ThreadsTableViewCell *)[self.table_threads cellForRowAtIndexPath:indexpath];
+    ThreadsCell *tappedCell = (ThreadsCell *)[self.table_threads cellForRowAtIndexPath:indexpath];
     if ([tappedCell.button_pin.imageView.image isEqual:[UIImage imageNamed:@"pin_normal"]])
     {
         [tappedCell.button_pin popOutsideWithDuration:0.5];
@@ -397,8 +472,10 @@
 #pragma web Service Calling
 -(void)ThreadsAPICalling:(NSString *)offset limit:(NSString *)limit {
  
-    [appDelegate.loaderView removeFromSuperview];
-    appDelegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [self->appDelegate.loaderView removeFromSuperview];
+//    });
     
     ary_Threads=[[NSMutableArray alloc]init];
     
@@ -410,15 +487,18 @@
     
     NSURL *URL = [NSURL URLWithString:Threads];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+   [manager.operationQueue cancelAllOperations];
     [manager GET:URL.absoluteString parameters:parametersDictionary progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         
-        
+        [self->appDelegate.loaderView removeFromSuperview];
         [self->ary_Threads addObjectsFromArray:[[responseObject valueForKey:@"data"] valueForKey:@"thread"]];
         [self.table_threads reloadData];
-        [self->appDelegate.loaderView  removeFromSuperview];
+         //[manager.session invalidateAndCancel];
+        
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        //[manager.session invalidateAndCancel];
     }];
     
 }

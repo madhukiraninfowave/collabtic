@@ -65,7 +65,10 @@
     self.activityIndicator.center=self.window.center;
     self.activityIndicator.layer.cornerRadius=2.0;
     self.activityIndicator.layer.masksToBounds=YES;
+
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"logged_in"]) {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Userid"];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"domainid"];
         UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
         [self.loaderView removeFromSuperview];
         WelcomeViewController  *HomeViewObj=[storyBoard instantiateViewControllerWithIdentifier:@"WelcomeViewControllerID"];
@@ -76,6 +79,8 @@
         return YES;
         
     }else{
+        loginID = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Userid"] intValue];
+        domineID = [[[NSUserDefaults standardUserDefaults] objectForKey:@"domainid"] intValue];
       UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
         [self.loaderView removeFromSuperview];
         hometabViewController  *HomeViewObj=[storyBoard instantiateViewControllerWithIdentifier:@"homeViewID"];

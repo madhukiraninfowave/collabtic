@@ -319,8 +319,8 @@
                                                              options:kNilOptions
                                                                error:&error];
 //        NSString *string = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-        //NSLog(@"%@",json);
-        [self ProfileUpload:[json valueForKey:@"profile_path"]];
+        NSLog(@"image%@",json);
+      
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"Error: %@", error);

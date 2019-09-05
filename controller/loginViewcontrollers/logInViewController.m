@@ -280,7 +280,11 @@
             
         }else{
             self->appDelegate.domineID = [[responce valueForKey:@"domain_id"] intValue];
+            [[NSUserDefaults standardUserDefaults] setInteger:self->appDelegate.domineID forKey:@"domainid"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
              self->appDelegate.loginID = [[responce valueForKey:@"Userid"] intValue];
+          [[NSUserDefaults standardUserDefaults] setInteger:self->appDelegate.loginID forKey:@"Userid"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"logged_in"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];

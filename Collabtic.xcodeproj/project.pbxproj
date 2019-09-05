@@ -3,20 +3,32 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		041DF21207FC6517E3A5F2FB /* libPods-CollabticTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38A4AA3EAC0DADD79FF82763 /* libPods-CollabticTests.a */; };
-		5F368549709B4F14E40A42E6 /* libPods-CollabticUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 047C0AA7810C66DA41EA56B2 /* libPods-CollabticUITests.a */; };
+		1268A9310E5E1D1C6386559D /* Pods_Collabtic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87143A6E0241C9075690CA81 /* Pods_Collabtic.framework */; };
+		136B988D3B19568DC195F860 /* Pods_CollabticTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FD9CA15FB6E3C48EBB29B8 /* Pods_CollabticTests.framework */; };
+		177057E4230687E20017B213 /* DemoImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 177057E2230687E10017B213 /* DemoImageViewCell.m */; };
+		177057E5230687E20017B213 /* DemoImageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 177057E3230687E20017B213 /* DemoImageViewCell.xib */; };
+		17D2584922FC28B40004AF49 /* PopoverAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D2584622FC28B40004AF49 /* PopoverAction.m */; };
+		17D2584A22FC28B40004AF49 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D2584722FC28B40004AF49 /* PopoverView.m */; };
+		17D2584B22FC28B40004AF49 /* PopoverViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D2584822FC28B40004AF49 /* PopoverViewCell.m */; };
+		3D11FECF666A01CF61ECB16B /* Pods_CollabticUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D567CD748EB46A5F7EDE6FBA /* Pods_CollabticUITests.framework */; };
+		750BFAB322E2CA3100845921 /* detailsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 750BFAB222E2CA3100845921 /* detailsCollectionViewCell.m */; };
 		750CA03A22B3654900D6436A /* signUpemailverifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 750CA03922B3654900D6436A /* signUpemailverifyViewController.m */; };
 		750ED97922B4C89800288953 /* Webservices.m in Sources */ = {isa = PBXBuildFile; fileRef = 750ED97822B4C89800288953 /* Webservices.m */; };
 		750ED97C22B4DE5F00288953 /* SignupfinalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 750ED97B22B4DE5F00288953 /* SignupfinalViewController.m */; };
+		7515206122EECF8B00EEAA10 /* GallaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7515206022EECF8B00EEAA10 /* GallaryViewController.m */; };
+		7515206422EEEE0100EEAA10 /* gallaryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7515206322EEEE0100EEAA10 /* gallaryTableViewCell.m */; };
+		75172AFD22E06B85001F2EB0 /* detailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 75172AFC22E06B85001F2EB0 /* detailsTableViewCell.m */; };
 		7518ACA722B0B63600452247 /* SignUPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518ACA622B0B63600452247 /* SignUPViewController.m */; };
 		7518ACAA22B103AF00452247 /* tearmsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7518ACA922B103AF00452247 /* tearmsViewController.m */; };
 		751EB32322CB6BEB000CB8A2 /* ThreadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 751EB32222CB6BEB000CB8A2 /* ThreadsViewController.m */; };
 		751EB32D22CB6E22000CB8A2 /* ThreadsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 751EB32B22CB6E22000CB8A2 /* ThreadsTableViewCell.m */; };
 		751EB32E22CB6E22000CB8A2 /* ThreadsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 751EB32C22CB6E22000CB8A2 /* ThreadsTableViewCell.xib */; };
+		7523160022E98D6A0044A74B /* ThreadsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 752315FF22E98D6A0044A74B /* ThreadsCell.m */; };
+		7529E9B822D718AA001A8EC2 /* detailsThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7529E9B722D718AA001A8EC2 /* detailsThreadViewController.m */; };
 		752A62A122B23FE900149EAB /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A629422B23FE900149EAB /* Roboto-Medium.ttf */; };
 		752A62A222B23FE900149EAB /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A629522B23FE900149EAB /* Roboto-Light.ttf */; };
 		752A62A322B23FE900149EAB /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A629622B23FE900149EAB /* Roboto-Regular.ttf */; };
@@ -30,11 +42,23 @@
 		752A62AB22B23FE900149EAB /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A629E22B23FE900149EAB /* Roboto-Bold.ttf */; };
 		752A62AC22B23FE900149EAB /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A629F22B23FE900149EAB /* Roboto-Thin.ttf */; };
 		752A62AD22B23FE900149EAB /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752A62A022B23FE900149EAB /* Roboto-Black.ttf */; };
+		752B2F4B231E8E6200BD44D1 /* GLAssetCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 752B2F3C231E8E6200BD44D1 /* GLAssetCollectionViewCell.m */; };
+		752B2F4C231E8E6200BD44D1 /* GLAssetGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 752B2F3F231E8E6200BD44D1 /* GLAssetGridViewController.m */; };
+		752B2F4D231E8E6200BD44D1 /* MBProgressHUD+GL.m in Sources */ = {isa = PBXBuildFile; fileRef = 752B2F40231E8E6200BD44D1 /* MBProgressHUD+GL.m */; };
+		752B2F4E231E8E6200BD44D1 /* GLAssetPlaybackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 752B2F41231E8E6200BD44D1 /* GLAssetPlaybackViewController.m */; };
+		752B2F4F231E8E6200BD44D1 /* UIView+CustomAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 752B2F42231E8E6200BD44D1 /* UIView+CustomAutoLayout.m */; };
+		752B2F50231E8E6200BD44D1 /* GLPickPicVidViewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 752B2F43231E8E6200BD44D1 /* GLPickPicVidViewCollectionViewCell.m */; };
+		752B2F51231E8E6200BD44D1 /* GLAssetPlayBackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 752B2F45231E8E6200BD44D1 /* GLAssetPlayBackView.m */; };
+		752B2F56231E9CB900BD44D1 /* GLAssetViewBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 752B2F54231E9CB900BD44D1 /* GLAssetViewBrowser.m */; };
 		75315DA922B126DC00C89E1B /* WebviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75315DA822B126DC00C89E1B /* WebviewViewController.m */; };
 		7534748C22D0BDD3007715ED /* menuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7534748B22D0BDD3007715ED /* menuViewController.m */; };
 		7538F29022C73B8A0031539A /* homeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7538F28F22C73B8A0031539A /* homeViewController.m */; };
 		7538F29722C74D850031539A /* hometabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7538F29622C74D850031539A /* hometabViewController.m */; };
+		755ABC0C22EF20B2005EAE34 /* webtreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 755ABC0B22EF20B2005EAE34 /* webtreadViewController.m */; };
 		756F76B222C5DF39004FFACC /* loginValidationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 756F76B122C5DF39004FFACC /* loginValidationViewController.m */; };
+		758543B223213720005C75B0 /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 758543AF23213720005C75B0 /* HPGrowingTextView.m */; };
+		758543B323213720005C75B0 /* HPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = 758543B023213720005C75B0 /* HPTextViewInternal.m */; };
+		75E411C922F9A212002D9F49 /* replyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E411C822F9A212002D9F49 /* replyCollectionViewCell.m */; };
 		DC62EE2122AF7DE10035980E /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = DC62EE2022AF7DE10035980E /* UIView+Toast.m */; };
 		DC75C98022AE495C00FF2858 /* logInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC75C97F22AE495C00FF2858 /* logInViewController.m */; };
 		DC85B7E822AFBB7600966B3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC85B7E722AFBB7600966B3C /* Assets.xcassets */; };
@@ -49,9 +73,7 @@
 		DC8FE16722A8DDA0001D96D2 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8FE16622A8DDA0001D96D2 /* WelcomeViewController.m */; };
 		DC8FE16B22A8DE8E001D96D2 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8FE16A22A8DE8E001D96D2 /* Reachability.m */; };
 		DC8FE17322A8DEEB001D96D2 /* CommonClass.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8FE17222A8DEEB001D96D2 /* CommonClass.m */; };
-		DC8FE17822A8E9A1001D96D2 /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8FE17622A8E9A1001D96D2 /* DACircularProgressView.m */; };
 		DC928D6D22AFB57800E7D78A /* forgotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC928D6C22AFB57800E7D78A /* forgotViewController.m */; };
-		DCDB81AB00C9D3272005BEAD /* libPods-Collabtic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9C3F790B05AC8A714E0D8C /* libPods-Collabtic.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,18 +94,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		047C0AA7810C66DA41EA56B2 /* libPods-CollabticUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CollabticUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BE04876EC622F3C9EFA21F /* Pods-Collabtic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collabtic.release.xcconfig"; path = "Pods/Target Support Files/Pods-Collabtic/Pods-Collabtic.release.xcconfig"; sourceTree = "<group>"; };
-		1D9C3F790B05AC8A714E0D8C /* libPods-Collabtic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Collabtic.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		177057E1230687E10017B213 /* DemoImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoImageViewCell.h; sourceTree = "<group>"; };
+		177057E2230687E10017B213 /* DemoImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoImageViewCell.m; sourceTree = "<group>"; };
+		177057E3230687E20017B213 /* DemoImageViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoImageViewCell.xib; sourceTree = "<group>"; };
+		17D2584322FC28B40004AF49 /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
+		17D2584422FC28B40004AF49 /* PopoverViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewCell.h; sourceTree = "<group>"; };
+		17D2584522FC28B40004AF49 /* PopoverAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverAction.h; sourceTree = "<group>"; };
+		17D2584622FC28B40004AF49 /* PopoverAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverAction.m; sourceTree = "<group>"; };
+		17D2584722FC28B40004AF49 /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
+		17D2584822FC28B40004AF49 /* PopoverViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewCell.m; sourceTree = "<group>"; };
 		3584D5113ADD3F1760D96387 /* Pods-CollabticTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollabticTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CollabticTests/Pods-CollabticTests.debug.xcconfig"; sourceTree = "<group>"; };
-		38A4AA3EAC0DADD79FF82763 /* libPods-CollabticTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CollabticTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FE77D19752D4A80633EB1E4 /* Pods-CollabticTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollabticTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollabticTests/Pods-CollabticTests.release.xcconfig"; sourceTree = "<group>"; };
+		750BFAB122E2CA3100845921 /* detailsCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = detailsCollectionViewCell.h; sourceTree = "<group>"; };
+		750BFAB222E2CA3100845921 /* detailsCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = detailsCollectionViewCell.m; sourceTree = "<group>"; };
 		750CA03822B3654900D6436A /* signUpemailverifyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = signUpemailverifyViewController.h; sourceTree = "<group>"; };
 		750CA03922B3654900D6436A /* signUpemailverifyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = signUpemailverifyViewController.m; sourceTree = "<group>"; };
 		750ED97722B4C89800288953 /* Webservices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Webservices.h; sourceTree = "<group>"; };
 		750ED97822B4C89800288953 /* Webservices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webservices.m; sourceTree = "<group>"; };
 		750ED97A22B4DE5F00288953 /* SignupfinalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupfinalViewController.h; sourceTree = "<group>"; };
 		750ED97B22B4DE5F00288953 /* SignupfinalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignupfinalViewController.m; sourceTree = "<group>"; };
+		7515205F22EECF8B00EEAA10 /* GallaryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GallaryViewController.h; sourceTree = "<group>"; };
+		7515206022EECF8B00EEAA10 /* GallaryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GallaryViewController.m; sourceTree = "<group>"; };
+		7515206222EEEE0100EEAA10 /* gallaryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gallaryTableViewCell.h; sourceTree = "<group>"; };
+		7515206322EEEE0100EEAA10 /* gallaryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = gallaryTableViewCell.m; sourceTree = "<group>"; };
+		75172AFB22E06B85001F2EB0 /* detailsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = detailsTableViewCell.h; sourceTree = "<group>"; };
+		75172AFC22E06B85001F2EB0 /* detailsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = detailsTableViewCell.m; sourceTree = "<group>"; };
 		7518ACA522B0B63600452247 /* SignUPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUPViewController.h; sourceTree = "<group>"; };
 		7518ACA622B0B63600452247 /* SignUPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUPViewController.m; sourceTree = "<group>"; };
 		7518ACA822B103AF00452247 /* tearmsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tearmsViewController.h; sourceTree = "<group>"; };
@@ -93,6 +129,10 @@
 		751EB32A22CB6E22000CB8A2 /* ThreadsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadsTableViewCell.h; sourceTree = "<group>"; };
 		751EB32B22CB6E22000CB8A2 /* ThreadsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreadsTableViewCell.m; sourceTree = "<group>"; };
 		751EB32C22CB6E22000CB8A2 /* ThreadsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThreadsTableViewCell.xib; sourceTree = "<group>"; };
+		752315FE22E98D6A0044A74B /* ThreadsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadsCell.h; sourceTree = "<group>"; };
+		752315FF22E98D6A0044A74B /* ThreadsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreadsCell.m; sourceTree = "<group>"; };
+		7529E9B622D718AA001A8EC2 /* detailsThreadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = detailsThreadViewController.h; sourceTree = "<group>"; };
+		7529E9B722D718AA001A8EC2 /* detailsThreadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = detailsThreadViewController.m; sourceTree = "<group>"; };
 		752A629422B23FE900149EAB /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		752A629522B23FE900149EAB /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		752A629622B23FE900149EAB /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -106,6 +146,22 @@
 		752A629E22B23FE900149EAB /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		752A629F22B23FE900149EAB /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		752A62A022B23FE900149EAB /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		752B2F3B231E8E6200BD44D1 /* GLAssetPlayBackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLAssetPlayBackView.h; sourceTree = "<group>"; };
+		752B2F3C231E8E6200BD44D1 /* GLAssetCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLAssetCollectionViewCell.m; sourceTree = "<group>"; };
+		752B2F3D231E8E6200BD44D1 /* GLPickPicVidViewCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLPickPicVidViewCollectionViewCell.h; sourceTree = "<group>"; };
+		752B2F3E231E8E6200BD44D1 /* UIView+CustomAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CustomAutoLayout.h"; sourceTree = "<group>"; };
+		752B2F3F231E8E6200BD44D1 /* GLAssetGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLAssetGridViewController.m; sourceTree = "<group>"; };
+		752B2F40231E8E6200BD44D1 /* MBProgressHUD+GL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+GL.m"; sourceTree = "<group>"; };
+		752B2F41231E8E6200BD44D1 /* GLAssetPlaybackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLAssetPlaybackViewController.m; sourceTree = "<group>"; };
+		752B2F42231E8E6200BD44D1 /* UIView+CustomAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CustomAutoLayout.m"; sourceTree = "<group>"; };
+		752B2F43231E8E6200BD44D1 /* GLPickPicVidViewCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLPickPicVidViewCollectionViewCell.m; sourceTree = "<group>"; };
+		752B2F44231E8E6200BD44D1 /* GLAssetCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLAssetCollectionViewCell.h; sourceTree = "<group>"; };
+		752B2F45231E8E6200BD44D1 /* GLAssetPlayBackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLAssetPlayBackView.m; sourceTree = "<group>"; };
+		752B2F47231E8E6200BD44D1 /* GLAssetGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLAssetGridViewController.h; sourceTree = "<group>"; };
+		752B2F48231E8E6200BD44D1 /* GLAssetPlaybackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLAssetPlaybackViewController.h; sourceTree = "<group>"; };
+		752B2F4A231E8E6200BD44D1 /* MBProgressHUD+GL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+GL.h"; sourceTree = "<group>"; };
+		752B2F54231E9CB900BD44D1 /* GLAssetViewBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLAssetViewBrowser.m; sourceTree = "<group>"; };
+		752B2F55231E9CB900BD44D1 /* GLAssetViewBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLAssetViewBrowser.h; sourceTree = "<group>"; };
 		75315DA722B126DC00C89E1B /* WebviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebviewViewController.h; sourceTree = "<group>"; };
 		75315DA822B126DC00C89E1B /* WebviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebviewViewController.m; sourceTree = "<group>"; };
 		7534748A22D0BDD3007715ED /* menuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = menuViewController.h; sourceTree = "<group>"; };
@@ -115,11 +171,21 @@
 		7538F29522C74D850031539A /* hometabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hometabViewController.h; sourceTree = "<group>"; };
 		7538F29622C74D850031539A /* hometabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = hometabViewController.m; sourceTree = "<group>"; };
 		7540D39122C4EC7F002A2FE9 /* Collabtic.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Collabtic.entitlements; sourceTree = "<group>"; };
+		755ABC0A22EF20B2005EAE34 /* webtreadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = webtreadViewController.h; sourceTree = "<group>"; };
+		755ABC0B22EF20B2005EAE34 /* webtreadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = webtreadViewController.m; sourceTree = "<group>"; };
 		756F76B022C5DF39004FFACC /* loginValidationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = loginValidationViewController.h; sourceTree = "<group>"; };
 		756F76B122C5DF39004FFACC /* loginValidationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = loginValidationViewController.m; sourceTree = "<group>"; };
+		758543AE23213720005C75B0 /* HPTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPTextViewInternal.h; sourceTree = "<group>"; };
+		758543AF23213720005C75B0 /* HPGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPGrowingTextView.m; sourceTree = "<group>"; };
+		758543B023213720005C75B0 /* HPTextViewInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPTextViewInternal.m; sourceTree = "<group>"; };
+		758543B123213720005C75B0 /* HPGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPGrowingTextView.h; sourceTree = "<group>"; };
+		75E411C722F9A212002D9F49 /* replyCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = replyCollectionViewCell.h; sourceTree = "<group>"; };
+		75E411C822F9A212002D9F49 /* replyCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = replyCollectionViewCell.m; sourceTree = "<group>"; };
+		87143A6E0241C9075690CA81 /* Pods_Collabtic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Collabtic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A25270B2BF63532FC1EAAC0F /* Pods-CollabticUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollabticUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CollabticUITests/Pods-CollabticUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A273616AA8A7FEBA91229D72 /* Pods-Collabtic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collabtic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Collabtic/Pods-Collabtic.debug.xcconfig"; sourceTree = "<group>"; };
 		B4581325DB24E5A89EA9BFAC /* Pods-CollabticUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollabticUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollabticUITests/Pods-CollabticUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D567CD748EB46A5F7EDE6FBA /* Pods_CollabticUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CollabticUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC62EE1F22AF7DE10035980E /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
 		DC62EE2022AF7DE10035980E /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		DC75C97E22AE495C00FF2858 /* logInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logInViewController.h; sourceTree = "<group>"; };
@@ -153,6 +219,7 @@
 		DC8FE17722A8E9A1001D96D2 /* DACircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DACircularProgressView.h; sourceTree = "<group>"; };
 		DC928D6B22AFB57800E7D78A /* forgotViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = forgotViewController.h; sourceTree = "<group>"; };
 		DC928D6C22AFB57800E7D78A /* forgotViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = forgotViewController.m; sourceTree = "<group>"; };
+		F2FD9CA15FB6E3C48EBB29B8 /* Pods_CollabticTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CollabticTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +227,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCDB81AB00C9D3272005BEAD /* libPods-Collabtic.a in Frameworks */,
+				1268A9310E5E1D1C6386559D /* Pods_Collabtic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,7 +235,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				041DF21207FC6517E3A5F2FB /* libPods-CollabticTests.a in Frameworks */,
+				136B988D3B19568DC195F860 /* Pods_CollabticTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,13 +243,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F368549709B4F14E40A42E6 /* libPods-CollabticUITests.a in Frameworks */,
+				3D11FECF666A01CF61ECB16B /* Pods_CollabticUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17D2584222FC28B40004AF49 /* PopoverView */ = {
+			isa = PBXGroup;
+			children = (
+				17D2584322FC28B40004AF49 /* PopoverView.h */,
+				17D2584422FC28B40004AF49 /* PopoverViewCell.h */,
+				17D2584522FC28B40004AF49 /* PopoverAction.h */,
+				17D2584622FC28B40004AF49 /* PopoverAction.m */,
+				17D2584722FC28B40004AF49 /* PopoverView.m */,
+				17D2584822FC28B40004AF49 /* PopoverViewCell.m */,
+			);
+			path = PopoverView;
+			sourceTree = "<group>";
+		};
 		1A9EB58B7FE22CCDAD5936EE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,18 +279,11 @@
 		6F544CC64D3478734F07A3E5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1D9C3F790B05AC8A714E0D8C /* libPods-Collabtic.a */,
-				38A4AA3EAC0DADD79FF82763 /* libPods-CollabticTests.a */,
-				047C0AA7810C66DA41EA56B2 /* libPods-CollabticUITests.a */,
+				87143A6E0241C9075690CA81 /* Pods_Collabtic.framework */,
+				F2FD9CA15FB6E3C48EBB29B8 /* Pods_CollabticTests.framework */,
+				D567CD748EB46A5F7EDE6FBA /* Pods_CollabticUITests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		751EB32922CB6DE1000CB8A2 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		752A629322B23FE900149EAB /* roboto */ = {
@@ -233,9 +306,37 @@
 			path = roboto;
 			sourceTree = "<group>";
 		};
+		752B2F3A231E8E6200BD44D1 /* GLAssetGrid */ = {
+			isa = PBXGroup;
+			children = (
+				752B2F55231E9CB900BD44D1 /* GLAssetViewBrowser.h */,
+				752B2F54231E9CB900BD44D1 /* GLAssetViewBrowser.m */,
+				752B2F3B231E8E6200BD44D1 /* GLAssetPlayBackView.h */,
+				752B2F3C231E8E6200BD44D1 /* GLAssetCollectionViewCell.m */,
+				752B2F3E231E8E6200BD44D1 /* UIView+CustomAutoLayout.h */,
+				752B2F3F231E8E6200BD44D1 /* GLAssetGridViewController.m */,
+				752B2F40231E8E6200BD44D1 /* MBProgressHUD+GL.m */,
+				752B2F41231E8E6200BD44D1 /* GLAssetPlaybackViewController.m */,
+				752B2F42231E8E6200BD44D1 /* UIView+CustomAutoLayout.m */,
+				752B2F3D231E8E6200BD44D1 /* GLPickPicVidViewCollectionViewCell.h */,
+				752B2F43231E8E6200BD44D1 /* GLPickPicVidViewCollectionViewCell.m */,
+				752B2F44231E8E6200BD44D1 /* GLAssetCollectionViewCell.h */,
+				752B2F45231E8E6200BD44D1 /* GLAssetPlayBackView.m */,
+				752B2F47231E8E6200BD44D1 /* GLAssetGridViewController.h */,
+				752B2F48231E8E6200BD44D1 /* GLAssetPlaybackViewController.h */,
+				752B2F4A231E8E6200BD44D1 /* MBProgressHUD+GL.h */,
+			);
+			path = GLAssetGrid;
+			sourceTree = "<group>";
+		};
 		7538F28D22C73B630031539A /* Homecontroller */ = {
 			isa = PBXGroup;
 			children = (
+				177057E1230687E10017B213 /* DemoImageViewCell.h */,
+				177057E2230687E10017B213 /* DemoImageViewCell.m */,
+				177057E3230687E20017B213 /* DemoImageViewCell.xib */,
+				7529E9B622D718AA001A8EC2 /* detailsThreadViewController.h */,
+				7529E9B722D718AA001A8EC2 /* detailsThreadViewController.m */,
 				7538F28E22C73B8A0031539A /* homeViewController.h */,
 				7538F28F22C73B8A0031539A /* homeViewController.m */,
 				7538F29522C74D850031539A /* hometabViewController.h */,
@@ -243,12 +344,37 @@
 				751EB32122CB6BEB000CB8A2 /* ThreadsViewController.h */,
 				751EB32222CB6BEB000CB8A2 /* ThreadsViewController.m */,
 				751EB32A22CB6E22000CB8A2 /* ThreadsTableViewCell.h */,
+				752315FE22E98D6A0044A74B /* ThreadsCell.h */,
+				752315FF22E98D6A0044A74B /* ThreadsCell.m */,
 				751EB32B22CB6E22000CB8A2 /* ThreadsTableViewCell.m */,
 				751EB32C22CB6E22000CB8A2 /* ThreadsTableViewCell.xib */,
 				7534748A22D0BDD3007715ED /* menuViewController.h */,
 				7534748B22D0BDD3007715ED /* menuViewController.m */,
+				75172AFB22E06B85001F2EB0 /* detailsTableViewCell.h */,
+				75172AFC22E06B85001F2EB0 /* detailsTableViewCell.m */,
+				750BFAB122E2CA3100845921 /* detailsCollectionViewCell.h */,
+				750BFAB222E2CA3100845921 /* detailsCollectionViewCell.m */,
+				7515205F22EECF8B00EEAA10 /* GallaryViewController.h */,
+				7515206022EECF8B00EEAA10 /* GallaryViewController.m */,
+				7515206222EEEE0100EEAA10 /* gallaryTableViewCell.h */,
+				7515206322EEEE0100EEAA10 /* gallaryTableViewCell.m */,
+				755ABC0A22EF20B2005EAE34 /* webtreadViewController.h */,
+				755ABC0B22EF20B2005EAE34 /* webtreadViewController.m */,
+				75E411C722F9A212002D9F49 /* replyCollectionViewCell.h */,
+				75E411C822F9A212002D9F49 /* replyCollectionViewCell.m */,
 			);
 			path = Homecontroller;
+			sourceTree = "<group>";
+		};
+		758543AD23213720005C75B0 /* class */ = {
+			isa = PBXGroup;
+			children = (
+				758543AE23213720005C75B0 /* HPTextViewInternal.h */,
+				758543AF23213720005C75B0 /* HPGrowingTextView.m */,
+				758543B023213720005C75B0 /* HPTextViewInternal.m */,
+				758543B123213720005C75B0 /* HPGrowingTextView.h */,
+			);
+			path = class;
 			sourceTree = "<group>";
 		};
 		DC62EE1E22AF7DE10035980E /* Toast */ = {
@@ -263,7 +389,6 @@
 		DC8FE11B22A8DAD6001D96D2 = {
 			isa = PBXGroup;
 			children = (
-				751EB32922CB6DE1000CB8A2 /* View */,
 				DC8FE15922A8DB0F001D96D2 /* Model */,
 				DC8FE15B22A8DB21001D96D2 /* controller */,
 				DC8FE12622A8DAD6001D96D2 /* Collabtic */,
@@ -321,6 +446,9 @@
 		DC8FE15922A8DB0F001D96D2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				758543AD23213720005C75B0 /* class */,
+				752B2F3A231E8E6200BD44D1 /* GLAssetGrid */,
+				17D2584222FC28B40004AF49 /* PopoverView */,
 				DC62EE1E22AF7DE10035980E /* Toast */,
 				DC8FE17522A8E98A001D96D2 /* MBProgress */,
 				DC8FE17022A8DED1001D96D2 /* commonClass */,
@@ -441,6 +569,7 @@
 				DC8FE12022A8DAD6001D96D2 /* Sources */,
 				DC8FE12122A8DAD6001D96D2 /* Frameworks */,
 				DC8FE12222A8DAD6001D96D2 /* Resources */,
+				3D60A47E84F35F483EDA56BF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -561,6 +690,7 @@
 				DC85B7E822AFBB7600966B3C /* Assets.xcassets in Resources */,
 				752A62A722B23FE900149EAB /* Roboto-BoldItalic.ttf in Resources */,
 				DC8FE12F22A8DAD6001D96D2 /* Main.storyboard in Resources */,
+				177057E5230687E20017B213 /* DemoImageViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,6 +711,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3D60A47E84F35F483EDA56BF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Collabtic/Pods-Collabtic-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Collabtic/Pods-Collabtic-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Collabtic/Pods-Collabtic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5D9858DEB906706FD7E769C6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -644,25 +791,46 @@
 			files = (
 				DC8FE16722A8DDA0001D96D2 /* WelcomeViewController.m in Sources */,
 				7538F29722C74D850031539A /* hometabViewController.m in Sources */,
+				752B2F50231E8E6200BD44D1 /* GLPickPicVidViewCollectionViewCell.m in Sources */,
 				DC8FE12C22A8DAD6001D96D2 /* ViewController.m in Sources */,
 				7518ACAA22B103AF00452247 /* tearmsViewController.m in Sources */,
 				750ED97C22B4DE5F00288953 /* SignupfinalViewController.m in Sources */,
 				7534748C22D0BDD3007715ED /* menuViewController.m in Sources */,
+				75172AFD22E06B85001F2EB0 /* detailsTableViewCell.m in Sources */,
+				17D2584A22FC28B40004AF49 /* PopoverView.m in Sources */,
+				7515206122EECF8B00EEAA10 /* GallaryViewController.m in Sources */,
+				752B2F4D231E8E6200BD44D1 /* MBProgressHUD+GL.m in Sources */,
+				177057E4230687E20017B213 /* DemoImageViewCell.m in Sources */,
+				752B2F4C231E8E6200BD44D1 /* GLAssetGridViewController.m in Sources */,
+				755ABC0C22EF20B2005EAE34 /* webtreadViewController.m in Sources */,
 				751EB32322CB6BEB000CB8A2 /* ThreadsViewController.m in Sources */,
 				7518ACA722B0B63600452247 /* SignUPViewController.m in Sources */,
 				DC8FE13722A8DAE7001D96D2 /* main.m in Sources */,
-				DC8FE17822A8E9A1001D96D2 /* DACircularProgressView.m in Sources */,
+				750BFAB322E2CA3100845921 /* detailsCollectionViewCell.m in Sources */,
+				752B2F4B231E8E6200BD44D1 /* GLAssetCollectionViewCell.m in Sources */,
 				DC928D6D22AFB57800E7D78A /* forgotViewController.m in Sources */,
+				752B2F51231E8E6200BD44D1 /* GLAssetPlayBackView.m in Sources */,
 				DC8FE12922A8DAD6001D96D2 /* AppDelegate.m in Sources */,
 				DC8FE16B22A8DE8E001D96D2 /* Reachability.m in Sources */,
+				752B2F4E231E8E6200BD44D1 /* GLAssetPlaybackViewController.m in Sources */,
+				7529E9B822D718AA001A8EC2 /* detailsThreadViewController.m in Sources */,
 				DC8FE16022A8DC66001D96D2 /* AsyncImageView.m in Sources */,
+				17D2584B22FC28B40004AF49 /* PopoverViewCell.m in Sources */,
+				17D2584922FC28B40004AF49 /* PopoverAction.m in Sources */,
+				758543B323213720005C75B0 /* HPTextViewInternal.m in Sources */,
 				750ED97922B4C89800288953 /* Webservices.m in Sources */,
+				752B2F56231E9CB900BD44D1 /* GLAssetViewBrowser.m in Sources */,
+				7523160022E98D6A0044A74B /* ThreadsCell.m in Sources */,
 				750CA03A22B3654900D6436A /* signUpemailverifyViewController.m in Sources */,
+				752B2F4F231E8E6200BD44D1 /* UIView+CustomAutoLayout.m in Sources */,
 				DC75C98022AE495C00FF2858 /* logInViewController.m in Sources */,
 				DC62EE2122AF7DE10035980E /* UIView+Toast.m in Sources */,
+				75E411C922F9A212002D9F49 /* replyCollectionViewCell.m in Sources */,
 				75315DA922B126DC00C89E1B /* WebviewViewController.m in Sources */,
 				7538F29022C73B8A0031539A /* homeViewController.m in Sources */,
+				758543B223213720005C75B0 /* HPGrowingTextView.m in Sources */,
 				DC8FE17322A8DEEB001D96D2 /* CommonClass.m in Sources */,
+				7515206422EEEE0100EEAA10 /* gallaryTableViewCell.m in Sources */,
 				756F76B222C5DF39004FFACC /* loginValidationViewController.m in Sources */,
 				751EB32D22CB6E22000CB8A2 /* ThreadsTableViewCell.m in Sources */,
 			);
@@ -833,6 +1001,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A273616AA8A7FEBA91229D72 /* Pods-Collabtic.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Collabtic/Collabtic.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -855,6 +1024,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 04BE04876EC622F3C9EFA21F /* Pods-Collabtic.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Collabtic/Collabtic.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

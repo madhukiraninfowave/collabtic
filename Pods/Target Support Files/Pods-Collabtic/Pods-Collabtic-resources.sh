@@ -3,10 +3,15 @@ set -e
 set -u
 set -o pipefail
 
+function on_error {
+  echo "$(realpath -mq "${0}"):$1: error: Unexpected failure"
+}
+trap 'on_error $LINENO' ERR
+
 if [ -z ${UNLOCALIZED_RESOURCES_FOLDER_PATH+x} ]; then
-    # If UNLOCALIZED_RESOURCES_FOLDER_PATH is not set, then there's nowhere for us to copy
-    # resources to, so exit 0 (signalling the script phase was successful).
-    exit 0
+  # If UNLOCALIZED_RESOURCES_FOLDER_PATH is not set, then there's nowhere for us to copy
+  # resources to, so exit 0 (signalling the script phase was successful).
+  exit 0
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
@@ -91,6 +96,28 @@ EOM
       ;;
   esac
 }
+if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/MBCircularProgressBar/MBCircularProgressBar.bundle"
+  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/MWPhotoBrowser/MWPhotoBrowser.bundle"
+  install_resource "${PODS_ROOT}/YangMingShan/YangMingShan/YMSPhotoPicker/Private/YMSAlbumCell.xib"
+  install_resource "${PODS_ROOT}/YangMingShan/YangMingShan/YMSPhotoPicker/Private/YMSAlbumPickerViewController.xib"
+  install_resource "${PODS_ROOT}/YangMingShan/YangMingShan/YMSPhotoPicker/Private/YMSCameraCell.xib"
+  install_resource "${PODS_ROOT}/YangMingShan/YangMingShan/YMSPhotoPicker/Private/YMSPhotoCell.xib"
+  install_resource "${PODS_ROOT}/YangMingShan/YangMingShan/YMSPhotoPicker/Private/YMSSinglePhotoViewController.xib"
+  install_resource "${PODS_ROOT}/YangMingShan/YangMingShan/YMSPhotoPicker/Public/YMSPhotoPickerViewController.xib"
+  install_resource "${PODS_ROOT}/YangMingShan/YangMingShan/YMSPhotoPicker/YMSPhotoPickerAssets.xcassets"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/MBCircularProgressBar/MBCircularProgressBar.bundle"
+  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/MWPhotoBrowser/MWPhotoBrowser.bundle"
+  install_resource "${PODS_ROOT}/YangMingShan/YangMingShan/YMSPhotoPicker/Private/YMSAlbumCell.xib"
+  install_resource "${PODS_ROOT}/YangMingShan/YangMingShan/YMSPhotoPicker/Private/YMSAlbumPickerViewController.xib"
+  install_resource "${PODS_ROOT}/YangMingShan/YangMingShan/YMSPhotoPicker/Private/YMSCameraCell.xib"
+  install_resource "${PODS_ROOT}/YangMingShan/YangMingShan/YMSPhotoPicker/Private/YMSPhotoCell.xib"
+  install_resource "${PODS_ROOT}/YangMingShan/YangMingShan/YMSPhotoPicker/Private/YMSSinglePhotoViewController.xib"
+  install_resource "${PODS_ROOT}/YangMingShan/YangMingShan/YMSPhotoPicker/Public/YMSPhotoPickerViewController.xib"
+  install_resource "${PODS_ROOT}/YangMingShan/YangMingShan/YMSPhotoPicker/YMSPhotoPickerAssets.xcassets"
+fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
