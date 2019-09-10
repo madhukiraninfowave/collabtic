@@ -243,7 +243,7 @@ Add additional users after setup</string>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1i8-Mf-cne">
-                                <rect key="frame" x="311" y="710" width="47.666666666666686" height="47.666666666666629"/>
+                                <rect key="frame" x="342.66666666666669" y="735.66666666666663" width="16" height="22"/>
                                 <state key="normal" image="arrowreverse"/>
                                 <connections>
                                     <action selector="button_cancle:" destination="Bnd-Lm-6pq" eventType="touchUpInside" id="1m5-4e-14t"/>
@@ -1266,7 +1266,7 @@ Add additional users after setup</string>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJ9-k4-BjC">
-                                <rect key="frame" x="311.33333333333331" y="710.33333333333337" width="47.666666666666686" height="47.666666666666629"/>
+                                <rect key="frame" x="343" y="736" width="16" height="22"/>
                                 <state key="normal" image="arrowreverse"/>
                                 <connections>
                                     <action selector="buttonAction_go:" destination="xle-RS-06v" eventType="touchUpInside" id="SAb-Bt-J4O"/>
@@ -2163,7 +2163,7 @@ Add additional users after setup</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="753" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sdg-5z-TIh">
-                                                            <rect key="frame" x="23" y="70" width="0.0" height="18"/>
+                                                            <rect key="frame" x="31" y="70" width="0.0" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="eVu-m7-QsE"/>
                                                             </constraints>
@@ -2172,10 +2172,10 @@ Add additional users after setup</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" image="grater" translatesAutoresizingMaskIntoConstraints="NO" id="shl-AB-RMk">
-                                                            <rect key="frame" x="26" y="73" width="8" height="15"/>
+                                                            <rect key="frame" x="34" y="73" width="16" height="15"/>
                                                         </imageView>
                                                         <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" image="grater" translatesAutoresizingMaskIntoConstraints="NO" id="VFT-2R-Loe">
-                                                            <rect key="frame" x="13" y="73" width="8" height="15"/>
+                                                            <rect key="frame" x="13" y="73" width="16" height="15"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" cngdnfgnjfjnf" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Wx-Nd-x8a">
                                                             <rect key="frame" x="8" y="89" width="4307" height="18"/>
@@ -2397,7 +2397,7 @@ Add additional users after setup</string>
                                                             </state>
                                                         </button>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ow-wd-qcx">
-                                                            <rect key="frame" x="38" y="70" width="0.0" height="18"/>
+                                                            <rect key="frame" x="54" y="70" width="0.0" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="OEf-kU-IqX"/>
                                                             </constraints>
@@ -3518,13 +3518,13 @@ Add additional users after setup</string>
                                 </connections>
                             </tableView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pji-VR-tmF">
-                                <rect key="frame" x="2" y="728" width="373" height="65"/>
+                                <rect key="frame" x="2" y="744" width="373" height="65"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gpq-zY-Z4x">
-                                        <rect key="frame" x="52" y="6" width="273" height="51"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gpq-zY-Z4x">
+                                        <rect key="frame" x="52" y="4" width="273" height="51"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <connections>
                                             <outlet property="delegate" destination="VaN-d9-Hw3" id="B9h-DV-bmY"/>
                                         </connections>
@@ -3556,10 +3556,10 @@ Add additional users after setup</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="yYX-y1-MlV" firstAttribute="top" secondItem="Pji-VR-tmF" secondAttribute="topMargin" constant="4" id="2pG-9q-jaG"/>
-                                    <constraint firstAttribute="bottom" secondItem="Gpq-zY-Z4x" secondAttribute="bottom" constant="8" id="Amo-7U-Cti"/>
+                                    <constraint firstAttribute="bottom" secondItem="Gpq-zY-Z4x" secondAttribute="bottom" constant="10" id="Amo-7U-Cti"/>
                                     <constraint firstItem="38l-Xi-H6W" firstAttribute="leading" secondItem="Pji-VR-tmF" secondAttribute="leading" constant="4" id="Dqn-La-6SD"/>
                                     <constraint firstAttribute="bottom" secondItem="yYX-y1-MlV" secondAttribute="bottom" constant="16" id="HCC-CI-UuH"/>
-                                    <constraint firstItem="Gpq-zY-Z4x" firstAttribute="top" secondItem="Pji-VR-tmF" secondAttribute="top" constant="6" id="NYX-y9-Qb7"/>
+                                    <constraint firstItem="Gpq-zY-Z4x" firstAttribute="top" secondItem="Pji-VR-tmF" secondAttribute="top" constant="4" id="NYX-y9-Qb7"/>
                                     <constraint firstItem="Gpq-zY-Z4x" firstAttribute="leading" secondItem="38l-Xi-H6W" secondAttribute="trailing" constant="2" id="PYp-7o-27Q"/>
                                     <constraint firstItem="yYX-y1-MlV" firstAttribute="top" secondItem="38l-Xi-H6W" secondAttribute="top" constant="4" id="VpP-Jv-EyQ"/>
                                     <constraint firstItem="yYX-y1-MlV" firstAttribute="leading" secondItem="Gpq-zY-Z4x" secondAttribute="trailing" constant="2" id="Ynx-jH-kmg"/>
@@ -3581,7 +3581,7 @@ Add additional users after setup</string>
                             <constraint firstItem="bgh-9d-Tuy" firstAttribute="trailing" secondItem="riW-1h-Oub" secondAttribute="trailing" constant="5" id="JHc-9O-5vy"/>
                             <constraint firstAttribute="bottom" secondItem="M4E-WW-Rup" secondAttribute="bottom" id="KFK-BR-q2H"/>
                             <constraint firstItem="1sC-3m-SzN" firstAttribute="trailing" secondItem="bgh-9d-Tuy" secondAttribute="trailing" id="Mbv-fv-bvG"/>
-                            <constraint firstAttribute="bottom" secondItem="Pji-VR-tmF" secondAttribute="bottom" constant="19" id="NF3-xB-Qjh"/>
+                            <constraint firstAttribute="bottom" secondItem="Pji-VR-tmF" secondAttribute="bottom" constant="3" id="NF3-xB-Qjh"/>
                             <constraint firstItem="NSg-bM-ecM" firstAttribute="trailing" secondItem="bgh-9d-Tuy" secondAttribute="trailing" id="U8I-BB-R61"/>
                             <constraint firstItem="1sC-3m-SzN" firstAttribute="leading" secondItem="bgh-9d-Tuy" secondAttribute="leading" id="UE5-2X-k4F"/>
                             <constraint firstItem="Pji-VR-tmF" firstAttribute="trailing" secondItem="bgh-9d-Tuy" secondAttribute="trailing" id="WvU-4w-dCU"/>
@@ -3592,13 +3592,13 @@ Add additional users after setup</string>
                             <constraint firstItem="riW-1h-Oub" firstAttribute="top" secondItem="NSg-bM-ecM" secondAttribute="bottom" id="akC-J7-D1s"/>
                             <constraint firstItem="Pji-VR-tmF" firstAttribute="leading" secondItem="bgh-9d-Tuy" secondAttribute="leading" constant="2" id="bZu-5a-3M4"/>
                             <constraint firstAttribute="bottom" secondItem="R1Q-2a-NlY" secondAttribute="bottom" id="eUO-ps-grg"/>
-                            <constraint firstItem="bgh-9d-Tuy" firstAttribute="bottom" secondItem="1sC-3m-SzN" secondAttribute="bottom" constant="-34" id="hbd-Do-rhv"/>
                             <constraint firstItem="1sC-3m-SzN" firstAttribute="top" secondItem="NSg-bM-ecM" secondAttribute="bottom" id="ijG-jI-ELS"/>
                             <constraint firstItem="R1Q-2a-NlY" firstAttribute="centerX" secondItem="ing-Cj-R1J" secondAttribute="centerX" id="mgW-rm-51Q"/>
                             <constraint firstItem="Pji-VR-tmF" firstAttribute="trailing" secondItem="bgh-9d-Tuy" secondAttribute="trailing" id="tc6-xn-YX0"/>
                             <constraint firstItem="M4E-WW-Rup" firstAttribute="top" secondItem="ing-Cj-R1J" secondAttribute="top" id="uAH-ea-ay3"/>
                             <constraint firstItem="riW-1h-Oub" firstAttribute="leading" secondItem="bgh-9d-Tuy" secondAttribute="leading" constant="5" id="vK9-xb-Ha3"/>
                             <constraint firstItem="n6a-Tr-PVt" firstAttribute="leading" secondItem="bgh-9d-Tuy" secondAttribute="leading" constant="8" id="wWY-Xz-fES"/>
+                            <constraint firstAttribute="bottom" secondItem="1sC-3m-SzN" secondAttribute="bottom" id="xii-eR-Qvv"/>
                             <constraint firstItem="NSg-bM-ecM" firstAttribute="top" secondItem="ing-Cj-R1J" secondAttribute="top" id="xyr-9x-iiv"/>
                             <constraint firstItem="M4E-WW-Rup" firstAttribute="trailing" secondItem="bgh-9d-Tuy" secondAttribute="trailing" id="xzU-Va-2LH"/>
                             <constraint firstItem="Pji-VR-tmF" firstAttribute="leading" secondItem="bgh-9d-Tuy" secondAttribute="leading" constant="2" id="yZA-y0-NW8"/>

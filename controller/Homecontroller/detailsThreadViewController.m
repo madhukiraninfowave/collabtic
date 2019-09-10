@@ -45,7 +45,9 @@ static NSString * const CellIdentifier = @"imageCellIdentifier";
     NSMutableArray *_selections;
     NSMutableDictionary*Caption;
     UITapGestureRecognizer *singleFingerTap;
-    BOOL clicked;
+    BOOL clicked,Noscroll;
+    int height;
+    
    
     
 }
@@ -64,7 +66,8 @@ static NSString * const CellIdentifier = @"imageCellIdentifier";
     self.tableview_threadDetails.delegate = self;
     self.tableview_threadDetails.dataSource = self;
     TableHeight = self.tableview_threadDetails.frame;
-    //TableHeight.size.height = self.view.frame.size.height;
+    Noscroll = YES;
+    TableHeight.size.height = self.view.frame.size.height;
     clicked = NO;
     self.tableview_threadDetails.estimatedRowHeight = 500;
     self.tableview_threadDetails.rowHeight = UITableViewAutomaticDimension;
@@ -77,9 +80,12 @@ static NSString * const CellIdentifier = @"imageCellIdentifier";
     
   _textview_Chat.layer.borderWidth = 1.0f;
    _textview_Chat.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    _textview_Chat.textContainer.maximumNumberOfLines = 6;
+    [_textview_Chat.layoutManager textContainerChangedGeometry:_textview_Chat.textContainer];
     _textview_Chat.layer.cornerRadius = 10;
     _textview_Chat.textColor = [UIColor lightGrayColor];
     _textview_Chat.editable = YES;
+    _textview_Chat.scrollEnabled = YES;
     _textview_Chat.text = @"Enter Your Post";
     self.view_transparentview.backgroundColor=[[UIColor blackColor] colorWithAlphaComponent:0.5f];
     
@@ -103,7 +109,7 @@ static NSString * const CellIdentifier = @"imageCellIdentifier";
        [self.collectionView registerNib:[UINib nibWithNibName:@"DemoImageViewCell" bundle:nil] forCellWithReuseIdentifier:@"imageCellIdentifier"];
     [[NSNotificationCenter defaultCenter]
      addObserver:self selector:@selector(triggerAction:) name:@"TestNotification" object:nil];
-    
+    self.doc.hidden = YES;
 }
 
 
@@ -431,6 +437,7 @@ static NSString * const CellIdentifier = @"imageCellIdentifier";
                     cell.view_blurr.hidden = YES;
                     if ([[[[[ary_details objectAtIndex:indexPath.row]valueForKey:@"image"] objectAtIndex:0] valueForKey:@"flag_id"] intValue]==2) {
                         [cell.imageTemp setImageURL:[NSURL URLWithString:[[[[ary_details objectAtIndex:indexPath.row]valueForKey:@"image"]objectAtIndex:0]valueForKey:@"poster_image"]]];
+                        cell.temp_play.hidden = NO;
                     }else{
                         [cell.imageTemp setImageURL:[NSURL URLWithString:[[[[ary_details objectAtIndex:indexPath.row]valueForKey:@"image"]objectAtIndex:0]valueForKey:@"file_path"]]];
                     }
@@ -439,6 +446,7 @@ static NSString * const CellIdentifier = @"imageCellIdentifier";
                     cell.label_imageCount.text = [NSString stringWithFormat:@"+%lu",(unsigned long)[[[ary_details objectAtIndex:indexPath.row]valueForKey:@"image"] count]];
                     if ([[[[[ary_details objectAtIndex:indexPath.row]valueForKey:@"image"] objectAtIndex:0] valueForKey:@"flag_id"] intValue]==2) {
                         [cell.imageTemp setImageURL:[NSURL URLWithString:[[[[ary_details objectAtIndex:indexPath.row]valueForKey:@"image"]objectAtIndex:0]valueForKey:@"poster_image"]]];
+                        cell.temp_play.hidden = NO;
                     }else{
                         [cell.imageTemp setImageURL:[NSURL URLWithString:[[[[ary_details objectAtIndex:indexPath.row]valueForKey:@"image"]objectAtIndex:0]valueForKey:@"file_path"]]];
                     }
@@ -572,22 +580,12 @@ static NSString * const CellIdentifier = @"imageCellIdentifier";
             mtCell.collectionview_images.scrollEnabled = YES;
         }
     }else if (indexPath.section ==1){
-
-        if (indexPath.row == [ary_details count]-1) {
-
+        if (indexPath.row == [ary_details count]) {
             CGRect frame = self.tableview_threadDetails.frame;
-            frame.size.height = self.view.frame.size.height-self.doc.frame.size.height*3;
-            self.tableview_threadDetails.frame = frame;
-            [UIView transitionWithView:self.doc
-                              duration:0.4
-                               options:UIViewAnimationOptionTransitionFlipFromTop
-                            animations:^{
-
-                                self.doc.hidden = NO;
-                            }
-                            completion:NULL];
+            frame.size.height =(CGRectGetMaxY(self.doc.frame)+self.doc.frame.size.height);
+             self.tableview_threadDetails.frame = frame;
         }
-
+        
     }
     
    
@@ -1037,7 +1035,15 @@ static NSString * const CellIdentifier = @"imageCellIdentifier";
 }
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
-    [self.doc.layer removeAllAnimations];
+    
+     Noscroll = NO;
+  
+        singleFingerTap =
+       [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                action:@selector(handleSingleTap)];
+    
+        [self.view addGestureRecognizer:singleFingerTap];
+   
   UITextPosition *beginning = [textView beginningOfDocument];
     [textView setSelectedTextRange:[textView textRangeFromPosition:beginning
                                                           toPosition:beginning]];
@@ -1052,16 +1058,17 @@ static NSString * const CellIdentifier = @"imageCellIdentifier";
     if(returnPressed < 8){
         
 //        _textview_Chat.frame = CGRectMake(8, 8, _textview_Chat.frame.size.width, _textview_Chat.frame.size.height + 17);
-        
+        NSLog(@"self.view%f",self.view.frame.size.height);
         self.textview_Chat.text = @"";
-        newLine += kOFFSET_FOR_KEYBOARD;
+        newLine -= kOFFSET_FOR_KEYBOARD;
         
-//        [UIView animateWithDuration:0.3 animations:^
-//         {
-//       ;
-//     self->_doc.transform = CGAffineTransformMakeTranslation(0,-newLine-self.doc.frame.size.height*3.9);
-//         }
-//         ];
+        [UIView animateWithDuration:0.3 animations:^
+         {
+      
+             self->_doc.transform = CGAffineTransformMakeTranslation(0,-250-newLine-self->height);
+             [self.tableview_threadDetails setContentOffset:self.tableview_threadDetails.contentOffset animated:NO];
+         }
+         ];
         
 
     }
@@ -1071,77 +1078,58 @@ static NSString * const CellIdentifier = @"imageCellIdentifier";
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+   
     
     const char * _char = [text cStringUsingEncoding:NSUTF8StringEncoding];
     int isBackSpace = strcmp(_char, "\b");
     
     if (isBackSpace == -8) {
-        
-//        returnPressed -=1;
-       // if (returnPressed == 0){
-
-//        newLine = self->_textview_Chat.frame.size.height;
-//        docHeight = self.doc.frame.size.height;
-        
         [UIView animateWithDuration:0.1 animations:^
          {
              if(self.textview_Chat.frame.size.height>51){
-//             self->_textview_Chat.frame = CGRectMake(self.button_Gallary.frame.size.width+5,self.textview_Chat.frame.origin.y, self->_textview_Chat.frame.size.width,self->_textview_Chat.frame.size.height-17);
-//             CGRect frame = self.doc.frame;
-//             frame.size.height = self.doc.frame.size.height-20;
-//             self.doc.frame = frame;
-//             self->_doc.transform = CGAffineTransformMakeTranslation(0,-250-8*returnPressed);
-             
+
+                
+                 CGRect frame = self.doc.frame;
+                 frame.size.height = newLine-5;
+                 self.doc.frame = frame;
+//                 if(returnPressed > 15 && returnPressed > 1){
+                     //self->height = newLine-50;
+                     //
+                     self.textview_Chat.frame = CGRectMake(self.textview_Chat.frame.origin.x,self.textview_Chat.frame.origin.y , self.textview_Chat.frame.size.width, self.textview_Chat.frame.size.height-8);
+                     
+                     [UIView animateWithDuration:0.1 animations:^
+                      {
+                          //
+                          self->_doc.transform = CGAffineTransformMakeTranslation(0,-330);
+                      }
+                      ];
+                     
+                 }
              }
              
-         }
+         //}
          ];
-        //}
-//        if (self.textview_Chat.frame.size.height==51) {
-//            newLine = 0;
-//            returnPressed =1;
-//             newLine = kOFFSET_FOR_KEYBOARD*returnPressed;
-//            [UIView animateWithDuration:0.1 animations:^
-//             {
-//
-//                 self->_doc.transform = CGAffineTransformMakeTranslation(0,-193-newLine+2);
-//             }];
-       // }
-        
-//        if( returnPressed <= 30  && self.textview_Chat.frame.size.height>51  ){
-//
-//            CGRect frame = self.doc.frame;
-//            frame.size.height = self.doc.frame.size.height-20;
-//            self.doc.frame = frame;
-//            docHeight = self.doc.frame.size.height;
-//            self->_textview_Chat.frame = CGRectMake(self.button_Gallary.frame.size.width+5, 5, self->_textview_Chat.frame.size.width, self->_textview_Chat.frame.size.height - 17);
-////            self->_doc.transform = CGAffineTransformMakeTranslation(0,newLine);
-//
-//        }
         
     }
+    
+    
     if ([text isEqualToString:@"\n"]) {
         
         returnPressed +=1;
         
-        if(returnPressed < 30 && returnPressed > 1){
+        if(returnPressed < 15 && returnPressed > 1){
             
-            
-            
-            
-            self.doc.frame = CGRectMake(0,self.textview_Chat.frame.origin.y+5,self.doc.frame.size.width,newLine+20);
-            CGRect frame1 = self.textview_Chat.frame;
-            frame1.size.height = self.doc.frame.size.height;
-            self.textview_Chat.frame = frame1;
-     
+           
+            newLine = 17*returnPressed;
             [UIView animateWithDuration:0.1 animations:^
              {
                 
-                
-//                 CGRect frame = self.doc.frame;
-//                 frame.size.height = newLine+20;
-//                 self.doc.frame = frame;
-                self->_doc.transform = CGAffineTransformMakeTranslation(0,-290-9*returnPressed);
+                 self->height = newLine;
+                 CGRect frame = self.doc.frame;
+                 frame.size.height = newLine+5;
+                 self.doc.frame = frame;
+                 self.textview_Chat.frame = CGRectMake(self.textview_Chat.frame.origin.x,self.textview_Chat.frame.origin.y , self.textview_Chat.frame.size.width, newLine+20);
+                self->_doc.transform = CGAffineTransformMakeTranslation(0,-295-newLine+10);
           
             
                  
@@ -1155,47 +1143,24 @@ static NSString * const CellIdentifier = @"imageCellIdentifier";
 }
 - (void)textViewDidChange:(UITextView *)textView{
  
-    UITextPosition* pos = _textview_Chat.endOfDocument;
-
-    CGRect currentRect = [_textview_Chat caretRectForPosition:pos];
-
-    if (currentRect.origin.y > previousRect.origin.y || [_textview_Chat.text isEqualToString:@"\n"]){
-
-              returnPressed +=1;
-
-        if(returnPressed < 30 && returnPressed > 1){
-//     self->_textview_Chat.frame = CGRectMake(self.button_Gallary.frame.size.width+5,self.textview_Chat.frame.origin.y, self->_textview_Chat.frame.size.width,self.textview_Chat.frame.size.height+17);
-            
-            CGRect frame = self.doc.frame;
-            frame.size.height = newLine+20;
-            self.doc.frame = frame;
-            CGRect frame1 = self.textview_Chat.frame;
-            frame1.size.height = self.doc.frame.size.height;
-            self.textview_Chat.frame = frame1;
-//            newLine = self->_textview_Chat.frame.size.height;
-//            docHeight = self.doc.frame.size.height;
-//            self->_textview_Chat.frame = CGRectMake(self.button_Gallary.frame.size.width+5,self.textview_Chat.frame.origin.y, self->_textview_Chat.frame.size.width,self.textview_Chat.frame.size.height+17);
-          
-
-            //newLine = 17*returnPressed;
-
-          
-               
-//            CGRect frame = self.doc.frame;
-//            frame.size.height = self.doc.frame.size.height+17;
-//            self.doc.frame = frame;
-            
-//                 self->_doc.transform = CGAffineTransformMakeTranslation(0, -250 - 50);
-            
+    UITextPosition* pos = textView.endOfDocument;
+    
+    CGRect currentRect = [textView caretRectForPosition:pos];
+    
+    if (currentRect.origin.y > previousRect.origin.y || [textView.text isEqualToString:@"\n"]){
+         returnPressed +=1;
+        if(returnPressed < 15 && returnPressed > 1){
+            self->height = self.textview_Chat.frame.origin.y;
+//
+            self.textview_Chat.frame = CGRectMake(self.textview_Chat.frame.origin.x,self.textview_Chat.frame.origin.y , self.textview_Chat.frame.size.width, self.textview_Chat.frame.size.height+8);
+  
             [UIView animateWithDuration:0.1 animations:^
              {
-               
-                self->_doc.transform = CGAffineTransformMakeTranslation(0,-290-9*returnPressed);
-                 
-                 
-                 
-             }
+//
+                 self->_doc.transform = CGAffineTransformMakeTranslation(0,-250-newLine-self->height);
+                 }
              ];
+            
         }
     }
     previousRect = currentRect;
@@ -1203,34 +1168,37 @@ static NSString * const CellIdentifier = @"imageCellIdentifier";
     
 }
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+   
     UITouch * touch = [touches anyObject];
     if(touch.phase == UITouchPhaseBegan) {
         [_textview_Chat resignFirstResponder];
         [self.view endEditing:YES];
-        
-      
         if([_textview_Chat.text isEqualToString:@""]){
-              int height = returnPressed;
+             int height1 = returnPressed;
+            height= 0;
             _textview_Chat.textColor = [UIColor lightGrayColor];
             _textview_Chat.text = @"Enter your Post";
             [UIView animateWithDuration:0.3 animations:^
              {
                  self->_textview_Chat.frame = CGRectMake(self->_button_Gallary.frame.size.width+5, 5, self->_textview_Chat.frame.size.width,51);
+                 CGRect frame = self.doc.frame;
+                 frame.size.height = 80;
+                 self.doc.frame = frame;
                  [self.view endEditing:YES];
-                 self->_doc.transform = CGAffineTransformMakeTranslation(0, -height);
+                 self->_doc.transform = CGAffineTransformMakeTranslation(0, -height1);
              }];
         }else{
-            
-          
+           
+            [self.view removeGestureRecognizer:singleFingerTap];
             _textview_Chat.textColor = [UIColor blackColor];
               [self.view endEditing:NO];
-//            self->_textview_Chat.frame = CGRectMake(self->_button_Gallary.frame.size.width+5, 5, self->_textview_Chat.frame.size.width,self.textview_Chat.frame.size.height);
-              int height = self.doc.frame.size.height-80;
-//  int height = self.view.frame.size.height-self.doc.frame.size.height;
+
+            int height1 = 17*returnPressed;
+
             [UIView animateWithDuration:0.3 animations:^
              {
                  
-                 self->_doc.transform = CGAffineTransformMakeTranslation(0, -height);
+                 self->_doc.transform = CGAffineTransformMakeTranslation(0, -height1);
              }];
         }
   
@@ -1482,9 +1450,8 @@ static NSString * const CellIdentifier = @"imageCellIdentifier";
 -(void)scrollViewWillEndDragging:(UIScrollView *)scrollView
                     withVelocity:(CGPoint)velocity
              targetContentOffset:(inout CGPoint *)targetContentOffset{
-    
-
-    if (velocity.y < 0){
+  
+if (velocity.y < 0 && Noscroll == YES){
         CGRect frame = self.tableview_threadDetails.frame;
         frame.size.height = self.view.frame.size.height;
         self.tableview_threadDetails.frame = frame;
@@ -1497,10 +1464,30 @@ static NSString * const CellIdentifier = @"imageCellIdentifier";
                             self.doc.hidden = YES;
                         }
                         completion:NULL];
-    }
+}
     
 }
-
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat height = scrollView.frame.size.height;
+    
+    CGFloat contentYoffset = scrollView.contentOffset.y;
+    
+    CGFloat distanceFromBottom = scrollView.contentSize.height - contentYoffset;
+    
+    if(distanceFromBottom < height && Noscroll == YES)
+    {
+      
+        [UIView transitionWithView:self.doc
+                          duration:0.4
+                           options:UIViewAnimationOptionTransitionFlipFromTop
+                        animations:^{
+                            
+                            self.doc.hidden = NO;
+                        }
+                        completion:NULL];
+    }
+}
 
 -(void)userChecking:(int)userID{
     if (appDelegate.loginID==userID) {
@@ -1544,27 +1531,30 @@ if ([self.textview_Chat.text isEqualToString:@"Enter Your Post"] ||[self.textvie
 {
 //    CGPoint location = [recognizer locationInView:[recognizer.view superview]];
    
-    
+     self.tableview_threadDetails.scrollEnabled = YES;
         [_textview_Chat resignFirstResponder];
         [self.view endEditing:YES];
         
-        
+        Noscroll = YES;
         if([_textview_Chat.text isEqualToString:@""]){
+         
             int height = returnPressed;
             _textview_Chat.textColor = [UIColor lightGrayColor];
             _textview_Chat.text = @"Enter your Post";
             [UIView animateWithDuration:0.3 animations:^
              {
                  self->_textview_Chat.frame = CGRectMake(self->_button_Gallary.frame.size.width+5, 5, self->_textview_Chat.frame.size.width,51);
-                 
+                 CGRect frame = self.doc.frame;
+                 frame.size.height = 80;
+                 self.doc.frame = frame;
                  self->_doc.transform = CGAffineTransformMakeTranslation(0, -height);
              }];
         }else{
             
             
-            _textview_Chat.textColor = [UIColor lightGrayColor];
+            _textview_Chat.textColor = [UIColor blackColor];;
             //            self->_textview_Chat.frame = CGRectMake(self->_button_Gallary.frame.size.width+5, 5, self->_textview_Chat.frame.size.width,self.textview_Chat.frame.size.height);
-            int height = self.doc.frame.size.height-60;
+            int height = 17*returnPressed;
             //  int height = self.view.frame.size.height-self.doc.frame.size.height;
             [UIView animateWithDuration:0.3 animations:^
              {
